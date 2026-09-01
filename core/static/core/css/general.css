@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+
+body{
+    background-color: #ffffff;
+    font-family: 'inter', sans-serif;
+}
+
+.active {
+    color: #6c4df6;
+    border-bottom: 2px solid #6c4df6;
+}
+
+nav{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.book {
+    color: #6c4df6;
+}
+.left-nav-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar {
+    color: #6c4df6;
+}
+.center-nav-section ul li a{
+    display: flex;
+    flex-direction: row !important;
+    text-decoration: none;
+}
+
+.center-nav-section ul li {
+    list-style: none;
+}
+
+.center-nav-section ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.right-nav-section a{
+    text-decoration: none;
+}
+
+.right-nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.login-btn {
+    border: 1px solid #6c4df6;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.get-started-btn {
+    border: none;
+    outline: none;
+    background-color: #6c4df6;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.project-name {
+    font-size: 20px;
+}

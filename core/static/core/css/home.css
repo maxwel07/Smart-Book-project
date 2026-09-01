@@ -1,0 +1,184 @@
+.hero-section {
+    position: relative;
+    background-image: url("../images/barber\ hero\ photo.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.2)
+    );
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .search-bar {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding-left: 1rem;
+    
+}
+
+.title {
+    font-size: 3.5em;
+    padding-top: 3rem;
+    
+}
+.title-par {
+    font-size: 1em;
+    padding-top: 2rem;
+}
+
+.search-bar input {
+    height: 35px;
+    padding: 10px;
+    width: 20rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    
+}
+.search-bar{
+    margin-top: 10rem;
+}
+
+#location {
+    height: 35px;
+    padding: 10px;
+    width: 15rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.search-btn {
+    height: 2.2rem;
+    padding: 5px;
+    outline: none;
+    border: none;
+    width: 5rem;
+    border-radius: 5px;
+    background-color: #6c4df6;
+    color: #fff;
+}
+
+.popular-categories div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+    margin: 2rem 2rem;
+
+
+}
+
+.more {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.icon-more {
+    border-radius: 50%;
+    background-color: #f5f2ff;
+    height: 20px;
+    width: 20px;
+    padding: 1rem;
+    border-radius: 50%;
+    color: #6c4df6;
+    text-decoration: none;
+
+}
+
+.cat-div {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f2ff;
+    padding: 2rem;
+    gap: 10px;
+    border-radius: 5px;
+    
+}
+
+.popular-categories h2 {
+    margin: 3rem;
+}
+
+img {
+    height: 250px;
+    width: 400px;
+    
+}
+
+.featured-businesses {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.featured-businesses h2 {
+    margin: 3rem;
+    
+}
+
+
+.businesses-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.business-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 20rem;
+    box-shadow: 0 0 20px grey;
+    overflow: hidden;
+
+}
+.content {
+    padding-left: 5px;
+    padding-bottom: 15px;
+}
+
+.star-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.location-content {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.view-bs-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #6c4df6;
+    padding: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    width: 90%;
+    
+
+
+}
