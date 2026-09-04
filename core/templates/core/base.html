@@ -31,12 +31,12 @@
             </div>
             <div class="center-nav-section">
                 <ul>
-                    <li><a href="/frontend/index.html" class="active">Home</a></li>
-                    <li><a href="/frontend/businesses.html">Businesses</a></li>
-                    <li><a href="/frontend/how-it-works.html">How it works</a></li>
-                    <li><a href="/frontend/list-your-business.html">List Your Business</a></li>
-                    <li><a href="/frontend/contact.html">Contact</a></li>
-                    <li><a href="/frontend/FAQs.html">FAQs</a></li>
+                    <li><a href="{% url 'home' %}" class="{% block active_home %} {% endblock %}">Home</a></li>
+                    <li><a href="{% url 'business_page' %}" class="{% block active_business %} {% endblock %}">Businesses</a></li>
+                    <li><a href="/frontend/how-it-works.html" class="{% block active_works %} {% endblock %}">How it works</a></li>
+                    <li><a href="/frontend/list-your-business.html" class="{% block active_list %} {% endblock %}">List Your Business</a></li>
+                    <li><a href="/frontend/contact.html" class="{% block active_contact %} {% endblock %}">Contact</a></li>
+                    <li><a href="/frontend/FAQs.html" class="{% block active_faqs %} {% endblock %}">FAQs</a></li>
                 </ul>
             </div>
             <div class="right-nav-section">
