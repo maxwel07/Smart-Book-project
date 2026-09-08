@@ -11,172 +11,193 @@
 
 {% block content %}   
     
-    <section class="hero-section">
-        <h1 class="title">Book the service. <br>Skip the waiting</h1>
-        <p class="title-par">Find and book trusted service providers around you in just a few taps</p>
-        <div class="search-bar">
-            <label for="search"></label>
-            <input  type="search" placeholder="search for a business or a service">
-            <select name="location" id="location">
-                <option value="Nairobi">Nairobi, Kenya</option>
-                <option value="Nairobi">Kiambu, Kenya</option>
-                <option value="Nairobi">Nakuru, Kenya</option>
-                <option value="Nairobi">Mombasa, Kenya</option>
-            </select>
-            <button class="search-btn">Search</button>
-        </div>
-    </section>
-    <section class="popular-categories">
-        <h2>Popular categories</h2>
-        <div class="popular-categories-div">
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="scissors"></i>
-                </a>
-                <p>Barbers</p>
-            </div>
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="scissors"></i>
-                </a>
-                <p>Salons</p>
-            </div>
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="car-front"></i>
-                </a>
-                <p>Car Wash</p>
-            </div>
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="dumbbell"></i>
-                </a>
-                <p>Gym</p>
-            </div>
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="ambulance"></i>
-                </a>
-                <p>Clinics</p>
-            </div>
-            <div class="cat-div">
-                <a href="" class="icon">
-                    <i data-lucide="camera"></i>
-                </a>
-                <p>photography</p>
-            </div>
-            <div class="more">
-                <a href="/frontend/businesses.html" class="icon-more">
-                    <i data-lucide="ellipsis"></i>
-                </a>
-                <p>More</p>
-            </div>
-        </div>
-    </section>
-    <section class="featured-businesses">
-        <h2>Featured Businesses</h2>
-        <div class="businesses-div">
-            <div class="business-card">
-                <div class="image">
-                    <img src="{% static 'core/images/barber photo 2.jpg' %}" alt="barber shop">
-                </div>
-                <div class="content">
-                    <h3>Max Cuts Barber</h3>
-                    <div class="star-content">
-                        <i data-lucide="star"></i>
-                        <b>4.8</b>
-                    </div>
-                    <div class="location-content">
-                        <i data-lucide="map-pin"></i>
-                        <p>Nairobi, Kenya</p>
-                    </div>
-                    <p>From Ksh.300</p> <br>
-                    <a href="" class="view-bs-btn">View Business</a>
-                </div>
-            </div>
-            <div class="business-card">
-                <div class="image">
-                    <img src="{% static 'core/images/salon photo.jpg' %}" alt="salon">
-                </div>
-                <div class="content">
-                    <h3>Glamour Salon</h3>
-                    <div class="star-content">
-                        <i data-lucide="star"></i>
-                        <b>4.7</b>
-                    </div>
-                    <div class="location-content">
-                        <i data-lucide="map-pin"></i>
-                        <p>Nairobi, Kenya</p>
-                    </div>
-                    <p class="price">From Ksh.500</p> <br>
-                    <a href="" class="view-bs-btn">View Business</a>
-                </div>
-            </div>
-            <div class="business-card">
-                <div class="image">
-                    <img src="{% static 'core/images/car wash photo.jpg' %}" alt="car-wash">
-                </div>
-                <div class="content">
-                    <h3>Sparkle Car Wash</h3>
-                    <div class="star-content">
-                        <i data-lucide="star"></i>
-                        <b>4.6</b>
-                    </div>
-                    <div class="location-content">
-                        <i data-lucide="map-pin"></i>
-                        <p>Nairobi, Kenya</p>
-                    </div>
-                    <p>From Ksh.400</p> <br>
-                    <a href="" class="view-bs-btn">View Business</a>
-                </div>
-            </div>
-            <div class="business-card">
-                <div class="image">
-                    <img src="{% static 'core/images/gym photo.jpg' %}" alt="gym">
-                </div>
-                <div class="content">
-                    <h3>Fit Life Gym</h3>
-                    <div class="star-content">
-                        <i data-lucide="star"></i>
-                        <b>4.9</b>
-                    </div>
-                    <div class="location-content">
-                        <i data-lucide="map-pin"></i>
-                        <p>Nairobi, Kenya</p>
-                    </div>
-                    <p>From Ksh.1500</p> <br>
-                    <a href="" class="view-bs-btn">View Business</a>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-    <section class="how-it-works">
-        <h2>How SmartBook works</h2>
-        <div class="step-search">
-            <i data-lucide="search"></i><br>
-            <b>01 <span>search</span></b>
-            <p>Find the service or business you need</p>
-        </div>
-        <div class="step-choose">
-            <i data-lucide="shopping-cart"></i><br>
-            <b>02 <span>Choose</span></b>
-            <p>Pick a provider, select a service and available time.</p>
-        </div>
-        <div class="step-book">
-            <i data-lucide="calendar_check"></i><br>
-            <b>02 <span>Book</span></b>
-            <p>Confirm your booking and you`re all set</p>
-        </div>
-    </section>
-    <section class="ad">
-        <div class="ad-info">
-            <h3>Own a service business?</h3>
-            <p>Join SmartBook and start receiving bookings from thousands of customers.</p>
-            <a href="/frontend/list-your-business.html">List Your business</a>
-        </div>
-    </section>
-    
 
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>Book your next appointment in seconds</h1>
+    <p>Barbers, salons, gyms and spas near you — real-time availability, instant confirmation.</p>
+
+    <form class="search-widget" action="#">
+      <div class="search-field">
+        <label for="service">Service or business</label>
+        <input type="text" id="service" placeholder="e.g. Haircut, Fresh Fade Studio">
+      </div>
+      <div class="search-field">
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="Nairobi, Kenya">
+      </div>
+      <div class="search-field">
+        <label for="date">Date</label>
+        <input type="date" id="date">
+      </div>
+      <button type="submit" class="btn btn-cta search-btn">Search</button>
+    </form>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories" id="categories">
+  <div class="container">
+    <h2>Browse by category</h2>
+    <div class="category-grid">
+      <a href="#" class="category-card">
+        <div class="category-icon">✂️</div>
+        <span>Barber Shops</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon">💇</div>
+        <span>Hair Salons</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon">🏋️</div>
+        <span>Gyms &amp; Fitness</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon">💆</div>
+        <span>Spas</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon">💅</div>
+        <span>Nail Studios</span>
+      </a>
+      <a href="#" class="category-card">
+        <div class="category-icon">🩺</div>
+        <span>Clinics</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured businesses -->
+<section class="featured">
+  <div class="container">
+    <div class="section-header">
+      <h2>Popular near you</h2>
+      <a href="#" class="view-all">View all businesses</a>
+    </div>
+
+    <div class="card-grid">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&h=320&fit=crop" alt="Fresh Fade Studio interior" class="card-img">
+        <div class="card-body">
+          <span class="card-tag">Barber Shop</span>
+          <h3 class="card-title">Fresh Fade Studio</h3>
+          <p class="card-rating">★ 4.8 <span>(120 reviews)</span></p>
+          <button class="btn btn-cta card-btn">Book Now</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=320&fit=crop" alt="Glow Hair Salon interior" class="card-img">
+        <div class="card-body">
+          <span class="card-tag">Hair Salon</span>
+          <h3 class="card-title">Glow Hair Salon</h3>
+          <p class="card-rating">★ 4.9 <span>(98 reviews)</span></p>
+          <button class="btn btn-cta card-btn">Book Now</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=320&fit=crop" alt="Peak Fitness Gym" class="card-img">
+        <div class="card-body">
+          <span class="card-tag">Gym</span>
+          <h3 class="card-title">Peak Fitness Gym</h3>
+          <p class="card-rating">★ 4.7 <span>(210 reviews)</span></p>
+          <button class="btn btn-cta card-btn">Book Now</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500&h=320&fit=crop" alt="Serenity Spa treatment room" class="card-img">
+        <div class="card-body">
+          <span class="card-tag">Spa</span>
+          <h3 class="card-title">Serenity Spa</h3>
+          <p class="card-rating">★ 4.9 <span>(76 reviews)</span></p>
+          <button class="btn btn-cta card-btn">Book Now</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Why SmartBook -->
+<section class="why" id="how-it-works">
+  <div class="container">
+    <h2>Why SmartBook</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <h3>Instant confirmation</h3>
+        <p>See real-time availability and get confirmed the moment you book — no waiting on a call back.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💳</div>
+        <h3>No sign-up fees</h3>
+        <p>Browse and book any business on SmartBook free of charge, always.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">✅</div>
+        <h3>Verified businesses</h3>
+        <p>Every listing is checked and reviewed by real customers before it goes live.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🕐</div>
+        <h3>24/7 booking</h3>
+        <p>Book any time of day or night — appointments don't wait for office hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- For business owners -->
+<section class="for-business" id="for-business">
+  <div class="container for-business-inner">
+    <div>
+      <h2>Own a barber shop, salon or gym?</h2>
+      <p>List your business on SmartBook and start filling your calendar with customers who are ready to book.</p>
+    </div>
+    <a href="#" class="btn btn-cta">List Your Business</a>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="container">
+    <h2>What customers say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"I booked a haircut on my lunch break and was in the chair ten minutes later. No more phone tag."</p>
+        <span class="testimonial-name">— Wanjiru K.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Found a nail studio near my new apartment and the reviews were spot on. Booking took under a minute."</p>
+        <span class="testimonial-name">— Amina O.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"My gym lets me book classes a week ahead now. I never miss the slots that fill up fast anymore."</p>
+        <span class="testimonial-name">— David M.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container newsletter-inner">
+    <div>
+      <h2>Get SmartBook in your pocket</h2>
+      <p>New businesses, deals and booking reminders — straight to your inbox.</p>
+    </div>
+    <form class="newsletter-form" action="#">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-cta">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+
+
+    
 {% endblock content %}
 

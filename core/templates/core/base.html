@@ -4,14 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="{% static 'core/css/general.css' %}">
     {% block extra_css %}
-    
     {% endblock %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script src="{% static 'core/js/main.js' %}"></script>
     
 
@@ -20,30 +16,24 @@
 
 <body>
 
-    <header>
-        <nav>
-            <div class="left-nav-section">
-                <div class="logo-title">
-                    <span class="material-icons calendar">event_available</span>
-                    <b class="project-name">Smart<span class="book">Book</span></b>
-                </div>
-                
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="#" class="logo">Smart<span>Book</span></a>
+            <nav class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url  'business_page' %}">Businesses</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#for-business">For Businesses</a>
+            <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+            <a href="#" class="btn btn-text">Log In</a>
+            <a href="#" class="btn btn-primary">Sign Up</a>
             </div>
-            <div class="center-nav-section">
-                <ul>
-                    <li><a href="{% url 'home' %}" class="{% block active_home %} {% endblock %}">Home</a></li>
-                    <li><a href="{% url 'business_page' %}" class="{% block active_business %} {% endblock %}">Businesses</a></li>
-                    <li><a href="/frontend/how-it-works.html" class="{% block active_works %} {% endblock %}">How it works</a></li>
-                    <li><a href="/frontend/list-your-business.html" class="{% block active_list %} {% endblock %}">List Your Business</a></li>
-                    <li><a href="/frontend/contact.html" class="{% block active_contact %} {% endblock %}">Contact</a></li>
-                    <li><a href="/frontend/FAQs.html" class="{% block active_faqs %} {% endblock %}">FAQs</a></li>
-                </ul>
-            </div>
-            <div class="right-nav-section">
-                <a href="/frontend/login.html" class="login-btn">Login</a>
-                <a href="/frontend/how-it-works.html" class="get-started-btn">Get Started</a>
-            </div>
-        </nav>
+            <button class="nav-toggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     {% block content %}
@@ -52,40 +42,39 @@
     </main>
     {% endblock %}
 
-    <footer>
-        <section class="footer">
-            <div class="footer-left">
-                <span class="material-icons">event_available</span>
-                <b>SmartBook</b>
-                <p>Connecting you to the best service providers in your area.</p>
-                <div class="social-media-icons">
-                    <i class="bi bi-instagram"></i>
-                    <i class="bi bi-facebook"></i>
-                    <i class="bi bi-youtube"></i>
-                    <i class="bi bi-linkedin"></i>
-                    <i class="bi bi-github"></i>
-                </div>
+    <footer class="footer" id="contact">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">Smart<span>Book</span></a>
+                <p>Book local businesses in seconds.</p>
             </div>
-            <div class="footer-second-section">
-                <h3>Company</h3>
-                <a href="/frontend/businesses.html">Businesses</a>
-                <a href="/frontend/how-it-works.html">How it works</a>
-                <a href="/frontend/contact.html">Contact</a>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">How It Works</a>
+                <a href="#">For Businesses</a>
             </div>
-            <div class="footer-third-section">
-                <h3>For Business</h3>
-                <a href="/frontend/list-your-business.html">List Your Business</a>
-                <a href="/frontend/login.html">Business Login</a>
-                <a href="/frontend/businesses.html">Business Resources & Pricing</a>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <a href="#">Barber Shops</a>
+                <a href="#">Salons</a>
+                <a href="#">Gyms</a>
+                <a href="#">Spas</a>
             </div>
-            <div class="footer-right">
-                <h3>Support</h3>
-                <a href="/frontend/TOS.html">Terms of service</a>
-                <a href="/frontend/privacy-policy.html">Privacy Policy</a>
-                <a href="/FAQs.html">FAQs</a>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:hello@smartbook.com">hello@smartbook.com</a>
+                <a href="tel:+254700000000">+254 700 000 000</a>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook">FB</a>
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="Twitter">TW</a>
             </div>
-            <p>&copy 2026 SmartBook. All rights reserved</p>
-        </section>
+        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SmartBook. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
     <script>
         lucide.createIcons();

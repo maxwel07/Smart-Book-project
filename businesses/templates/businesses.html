@@ -1,6 +1,208 @@
 {% extends 'core/base.html' %}
-
+{% load static %}
 {% block active_business %} active {% endblock %}
-{% block title %} businesses {% endblock title %}
 
-{% block content %} Welcome to the businesses page {% endblock content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'businesses/css/business.css' %}">
+{% endblock %}
+
+{% block title %} business page {% endblock %}
+
+{% block content %} 
+
+
+<!-- Page header -->
+<section class="page-header">
+  <div class="container">
+    <p class="breadcrumb"><a href="">Home</a> / <span>Businesses</span></p>
+    <h1>Find &amp; book local businesses</h1>
+
+    <form class="page-search" action="#">
+      <input type="text" placeholder="Service or business name">
+      <input type="text" placeholder="Location">
+      <button type="submit" class="btn btn-cta">Search</button>
+    </form>
+  </div>
+</section>
+
+<!-- Main layout -->
+<section class="listing">
+  <div class="container listing-inner">
+
+    <!-- Sidebar filters -->
+    <aside class="filters" id="filters">
+      <div class="filters-head">
+        <h2>Filters</h2>
+        <button class="clear-filters">Clear Filters</button>
+      </div>
+
+      <div class="filter-group">
+        <h3>Category</h3>
+        <label class="checkbox"><input type="checkbox"> Barber Shop</label>
+        <label class="checkbox"><input type="checkbox"> Hair Salon</label>
+        <label class="checkbox"><input type="checkbox"> Gym</label>
+        <label class="checkbox"><input type="checkbox"> Spa</label>
+        <label class="checkbox"><input type="checkbox"> Clinic</label>
+        <label class="checkbox"><input type="checkbox"> Nail Studio</label>
+      </div>
+
+      <div class="filter-group">
+        <h3>Price range</h3>
+        <div class="price-chips">
+          <button class="chip">$</button>
+          <button class="chip">$$</button>
+          <button class="chip">$$$</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h3>Rating</h3>
+        <label class="checkbox"><input type="radio" name="rating"> 4+ stars</label>
+        <label class="checkbox"><input type="radio" name="rating"> 3+ stars</label>
+        <label class="checkbox"><input type="radio" name="rating"> Any rating</label>
+      </div>
+
+      <div class="filter-group">
+        <h3>Distance</h3>
+        <input type="range" min="1" max="20" value="8" class="distance-slider">
+        <div class="distance-value">Within 8 km</div>
+      </div>
+
+      <div class="filter-group filter-toggle">
+        <label class="switch-label">
+          <span>Open now</span>
+          <span class="switch"><input type="checkbox"><span class="switch-track"></span></span>
+        </label>
+      </div>
+    </aside>
+
+    <!-- Results -->
+    <div class="results">
+      <div class="results-bar">
+        <p class="results-count"><strong>128</strong> businesses found</p>
+        <div class="results-controls">
+          <button class="view-toggle active" aria-label="Grid view">▦</button>
+          <button class="view-toggle" aria-label="List view">☰</button>
+          <select class="sort-select">
+            <option>Top Rated</option>
+            <option>Nearest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="business-grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&h=320&fit=crop" alt="Fresh Fade Studio interior" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Barber Shop</span>
+              <span class="open-badge">Open Now</span>
+            </div>
+            <h3 class="card-title">Fresh Fade Studio</h3>
+            <p class="card-rating">★ 4.8 <span>(120 reviews)</span></p>
+            <p class="card-meta">2.1 km away · $$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=320&fit=crop" alt="Glow Hair Salon interior" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Hair Salon</span>
+              <span class="open-badge">Open Now</span>
+            </div>
+            <h3 class="card-title">Glow Hair Salon</h3>
+            <p class="card-rating">★ 4.9 <span>(98 reviews)</span></p>
+            <p class="card-meta">1.4 km away · $$$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=320&fit=crop" alt="Peak Fitness Gym" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Gym</span>
+              <span class="open-badge">Open Now</span>
+            </div>
+            <h3 class="card-title">Peak Fitness Gym</h3>
+            <p class="card-rating">★ 4.7 <span>(210 reviews)</span></p>
+            <p class="card-meta">3.8 km away · $$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500&h=320&fit=crop" alt="Serenity Spa treatment room" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Spa</span>
+              <span class="closed-badge">Closed</span>
+            </div>
+            <h3 class="card-title">Serenity Spa</h3>
+            <p class="card-rating">★ 4.9 <span>(76 reviews)</span></p>
+            <p class="card-meta">4.6 km away · $$$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b8f?w=500&h=320&fit=crop" alt="Polish Nail Studio" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Nail Studio</span>
+              <span class="open-badge">Open Now</span>
+            </div>
+            <h3 class="card-title">Polish Nail Studio</h3>
+            <p class="card-rating">★ 4.6 <span>(54 reviews)</span></p>
+            <p class="card-meta">0.9 km away · $$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&h=320&fit=crop" alt="CityCare Clinic reception" class="card-img">
+          <div class="card-body">
+            <div class="card-top">
+              <span class="card-tag">Clinic</span>
+              <span class="open-badge">Open Now</span>
+            </div>
+            <h3 class="card-title">CityCare Clinic</h3>
+            <p class="card-rating">★ 4.8 <span>(143 reviews)</span></p>
+            <p class="card-meta">5.2 km away · $$</p>
+            <button class="btn btn-cta card-btn">Book Now</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="pagination">
+        <button class="page-btn" disabled>‹ Prev</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">Next ›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.getElementById('filters');
+    const bar = document.querySelector('.results-bar');
+    if (window.innerWidth <= 900 && bar) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.textContent = 'Filters';
+      toggleBtn.className = 'filters-toggle-btn';
+      bar.parentNode.insertBefore(toggleBtn, bar);
+      toggleBtn.addEventListener('click', () => filters.classList.toggle('open'));
+    }
+  });
+</script>
+
+ {% endblock content %}
