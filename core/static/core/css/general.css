@@ -54,8 +54,15 @@
   color: var(--text);
 }
 
-/*===NAV ACTIVE CLASS===*/
 .nav-links a:hover { color: var(--teal); }
+
+nav a.active {
+  border-bottom: 1px solid var(--teal);
+  color: var(--teal);
+  
+}
+
+
 
 .nav-actions {
   display: flex;
