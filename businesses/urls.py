@@ -2,5 +2,5 @@ from django.urls import path
 from .views import business
 
 urlpatterns = [
-    path('businesses/', business, name='business_page' )
+    path('businesses/', business, name='business_list' )
 ]

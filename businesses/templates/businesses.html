@@ -2,20 +2,21 @@
 
 {% load static %}
 
-{% block active_business %} active {% endblock %}
+{% block title %} Businesses Page{% endblock title %}
+
 
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'businesses/css/business.css' %}">
 {% endblock %}
 
-{% block title %} business page {% endblock %}
+ 
 
 {% block content %} 
 <!-- Page header -->
 <section class="page-header">
   <div class="container">
-    <p class="breadcrumb"><a href="">Home</a> / <span>Businesses</span></p>
+    <p class="breadcrumb"><a href="">Home</a><span>Businesses</span></p>
     <h1>Find &amp; book local businesses</h1>
 
     <form class="page-search" action="#">
@@ -94,26 +95,32 @@
       </div>
 
       <div class="business-grid">
+
+        {% for business in businesses %}
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&h=320&fit=crop" alt="Fresh Fade Studio interior" class="card-img">
+          <img src="{{business.image}}" alt="{{business.name}}" class="card-img">
           <div class="card-body">
             <div class="card-top">
-              <span class="card-tag">Barber Shop</span>
+              <span class="card-tag">{{business.category}}</span>
               <span class="open-badge">Open Now</span>
             </div>
-            <h3 class="card-title">Fresh Fade Studio</h3>
-            <p class="card-rating">★ 4.8 <span>(120 reviews)</span></p>
-            <p class="card-meta">2.1 km away · $$</p>
+            <h3 class="card-title">{{business.name}}</h3>
+            <p class="card-rating">★ {{business.rating}} <span>({{business.review_count}} reviews)</span></p>
+            <p class="card-meta">{{business.location}}</p>
             <button class="btn btn-cta card-btn">Book Now</button>
           </div>
         </article>
-
+        {% endfor %}
         <article class="card">
           <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=320&fit=crop" alt="Glow Hair Salon interior" class="card-img">
           <div class="card-body">
             <div class="card-top">
               <span class="card-tag">Hair Salon</span>
+              {% if business.is_open %}
               <span class="open-badge">Open Now</span>
+              {% else %}
+              <span class="closed-badge">Closed</span>
+              {% endif %}
             </div>
             <h3 class="card-title">Glow Hair Salon</h3>
             <p class="card-rating">★ 4.9 <span>(98 reviews)</span></p>
@@ -189,21 +196,8 @@
     </div>
   </div>
 </section>
-
-
-<script>
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const filters = document.getElementById('filters');
-    const bar = document.querySelector('.results-bar');
-    if (window.innerWidth <= 900 && bar) {
-      const toggleBtn = document.createElement('button');
-      toggleBtn.textContent = 'Filters';
-      toggleBtn.className = 'filters-toggle-btn';
-      bar.parentNode.insertBefore(toggleBtn, bar);
-      toggleBtn.addEventListener('click', () => filters.classList.toggle('open'));
-    }
-  });
-</script>
-
  {% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'businesses/js/business.js' %}"></script>
+{% endblock  %}

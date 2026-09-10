@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{% static 'core/css/general.css' %}">
+    
     {% block extra_css %}
     {% endblock %}
 
-    <script src="{% static 'core/js/main.js' %}"></script>
+    <script src="{% static 'core/js/main.js' %}" defer></script>
     
 
     <title>{% block title %} {% endblock %}</title>
@@ -20,11 +22,11 @@
         <div class="container navbar-inner">
             <a href="#" class="logo">Smart<span>Book</span></a>
             <nav class="nav-links">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url  'business_page' %}">Businesses</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#for-business">For Businesses</a>
-            <a href="#contact">Contact</a>
+                <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                <a href="{% url  'business_list' %}" class="{% if request.resolver_match.url_name == 'business_list' %}active{% endif %}">Businesses</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#for-business">For Businesses</a>
+                <a href="#contact">Contact</a>
             </nav>
             <div class="nav-actions">
                 <a href="#" class="btn btn-text">Log In</a>
@@ -76,6 +78,9 @@
             </div>
         </div>
     </footer>
-    
+
+{% block extra_js %}
+{% endblock %}
+
 </body>
 </html>

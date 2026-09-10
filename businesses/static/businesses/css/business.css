@@ -219,7 +219,7 @@
   cursor: pointer;
 }
 
-/* ===== Business cards (grid extends .card from styles.css) ===== */
+
 .business-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -273,8 +273,7 @@
 .page-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* ===== Active nav link ===== */
-.nav-links a.active { color: var(--teal); }
+
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
@@ -300,3 +299,100 @@
   .page-search { flex-direction: column; }
   .results-bar { align-items: flex-start; }
 }
+
+
+/* == TEST == */
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+
+.container {
+  
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+img { display: block; max-width: 100%; }
+
+
+.view-all {
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.view-all:hover { color: var(--navy); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.card-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-tag {
+  align-self: flex-start;
+  background: #e7f1f8;
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.card-rating {
+  color: #d99a06;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+.card-rating span { color: var(--text-light); font-weight: 400; }
+
+.card-btn { margin-top: auto; width: 100%; }
