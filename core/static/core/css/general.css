@@ -17,7 +17,31 @@
   --shadow: 0 2px 10px rgba(10, 61, 98, 0.08);
   --shadow-hover: 0 8px 24px rgba(10, 61, 98, 0.14);
 }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+
+.container {
+  
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { text-decoration: none; color: inherit; }
 
 
 .navbar {

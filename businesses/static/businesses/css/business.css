@@ -234,14 +234,23 @@
 }
 .card-top .card-tag { margin-bottom: 0; }
 
-.open-badge, .closed-badge {
+
+.open-badge { 
+  background: #e6f7ee;
+  color: var(--green);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
 }
-.open-badge { background: #e6f7ee; color: var(--green); }
-.closed-badge { background: #fdeaea; color: #c0392b; }
+.closed-badge {
+  background: #f7e6e6;
+  color: rgb(214, 62, 24);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
 
 .card-meta {
   font-size: 0.85rem;
@@ -302,31 +311,7 @@
 
 
 /* == TEST == */
-body {
-  font-family: var(--font-body);
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-
-
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  color: var(--navy);
-  line-height: 1.25;
-}
-
-
-.container {
-  
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-a { text-decoration: none; color: inherit; }
 
 img { display: block; max-width: 100%; }
 
