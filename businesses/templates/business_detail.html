@@ -31,11 +31,11 @@
 
   <div class="container">
     <div class="header-card">
-    {% for image in images %}
-        {% if image.image_type == 'logo' %}
-        <img class="business-logo" src="{{ image.image }}" alt="{{ business.name }} logo">
-        {% endif %}
-    {% endfor %}
+      {% for image in images %}
+          {% if image.image_type == 'logo' %}
+          <img class="business-logo" src="{{ image.image }}" alt="{{ business.name }} logo">
+          {% endif %}
+      {% endfor %}
     
       <div class="header-info">
         <div class="header-top">
@@ -71,13 +71,13 @@
     <div class="detail-main">
 
       <!-- Gallery -->
-        <div class="gallery">
+          <div class="gallery">
             {% for image in images %}
                 {% if image.image_type == 'gallery' %}
                     <img src="{{ image.image }}" alt="{{ business.name }} gallery photo">
                 {% endif %}
             {% endfor %}
-        </div>
+          </div>
         
          
  
@@ -109,41 +109,6 @@
           {% endfor %}
         </div>
       </div>
-   
-      <!-- Reviews -->
-      <div class="detail-section">
-        <h2>Reviews <span class="review-count">({{business.review_count}})</span></h2>
-        <div class="review-card">
-          <div class="review-top">
-            {% for review in reviews %}
-            <div class="avatar">{{ review.customer_name|initials }}</div>
-            <div>
-              <h4>{{ review.customer_name }}</h4>
-
-              {% for i in "12345" %}
-              {% if forloop.counter <= review.rating %}
-                  <span class="star filled">★</span>
-              {% else %}
-                  <span class="star">☆</span>
-              {% endif %}
-              {% endfor %}
-            </div>
-            <span class="review-date">{{ created_at }}</span>
-          </div>
-          <p>{{ review.comment }}</p>
-            {% empty %}
-            <p>No reviews yet</p>
-            {% endfor %}
-        </div>
-       
-
-        <button class="btn btn-outline load-more">Load More Reviews</button>
-      </div>
-    </div>
-
-    <!-- Sidebar -->
-    <aside class="detail-sidebar">
-
       <div class="booking-widget">
         <h3>Book an appointment</h3>
 
@@ -192,7 +157,97 @@
           <a href="#" aria-label="Twitter">TW</a>
         </div>
       </div>
-    </aside>
+      <!-- Reviews -->
+      <div class="detail-section">
+        <h2>Reviews <span class="review-count">({{business.review_count}})</span></h2>
+        {% for review in reviews %}
+        <div class="review-card">
+          <div class="review-top">
+            <div class="avatar">{{ review.customer_name|initials }}</div>
+            <div>
+              <h4>{{ review.customer_name }}</h4>
+
+              {% for i in "12345" %}
+              {% if forloop.counter <= review.rating %}
+                  <span class="star filled">★</span>
+              {% else %}
+                  <span class="star">☆</span>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <span class="review-date">{{ review.created_at|date:'M d, Y' }}</span>
+          </div>
+          <p>{{ review.comment }}</p>
+        </div>
+            {% empty %}
+            <p>No reviews yet</p>
+          {% endfor %}  
+        <div class="review-btn-holder">
+          <button class="btn btn-outline load-more">Load More Reviews</button>
+          <button class="btn btn-outline write-review-btn" id="write-review-btn">write a review</button>
+        </div>
+        
+        <!--Review form-->
+        <form class="review-form" id="review-form" method="POST">
+          {% csrf_token %}
+          {% if review_form.errors %}
+          <div class="form-errors">
+            <p>Please correct the following errors:</p>
+
+            {{ review_form.non_field_errors }}
+
+            {% for field in review_form %}
+                {% for error in field.errors %}
+                    <p>{{ field.label }}: {{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+          </div>
+          {% endif %}
+          <h3>Review Form</h3>
+
+          <div class="form-group">
+              <label for="customer-name">Name</label>
+              <input
+                  type="text"
+                  id="customer-name"
+                  name="customer_name"
+                  placeholder="Enter your name"
+              >
+          </div>
+
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating">
+              <option value="5">★★★★★ — 5</option>
+              <option value="4">★★★★☆ — 4</option>
+              <option value="3">★★★☆☆ — 3</option>
+              <option value="2">★★☆☆☆ — 2</option>
+              <option value="1">★☆☆☆☆ — 1</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+              <label for="comment">Your Review</label>
+              <textarea
+                  id="comment"
+                  name="comment"
+                  rows="5"
+                  placeholder="Share your experience"
+              ></textarea>
+          </div>
+
+          <button
+              type="submit"
+              class="btn btn-primary submit"
+              id="submit-review"
+            >
+              Submit Review
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <aside class="detail-sidebar"></aside>
   </div>
 </section>
 
