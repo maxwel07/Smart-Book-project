@@ -17,7 +17,7 @@
 <!-- Page header -->
 <section class="page-header">
   <div class="container">
-    <p class="breadcrumb"><a href="">Home</a><span>Businesses</span></p>
+    <p class="breadcrumb"><a href="{% url 'home' %}">Home</a> | <span>Businesses</span></p>
     <h1>Find &amp; book local businesses</h1>
 
     <form class="page-search" action="#">
@@ -82,7 +82,9 @@
     <!-- Results -->
     <div class="results">
       <div class="results-bar">
-        <p class="results-count"><strong>128</strong> businesses found</p>
+   
+        <p class="results-count"><strong>{{ business.count }}</strong> businesses found</p>
+
         <div class="results-controls">
           <button class="view-toggle active" aria-label="Grid view">▦</button>
           <button class="view-toggle" aria-label="List view">☰</button>
@@ -103,7 +105,11 @@
           <div class="card-body">
             <div class="card-top">
               <span class="card-tag">{{business.category}}</span>
+              {% if business.is_open %}
               <span class="open-badge">Open Now</span>
+              {% else %}
+              <span class="closed-badge">closed</span>
+              {% endif %}
             </div>
             <h3 class="card-title">{{business.name}}</h3>
             <p class="card-rating">★ {{business.rating}} <span>({{business.review_count}} reviews)</span></p>
@@ -112,66 +118,8 @@
           </div>
         </article>
         {% endfor %}
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=320&fit=crop" alt="Glow Hair Salon interior" class="card-img">
-          <div class="card-body">
-            <div class="card-top">
-              <span class="card-tag">Hair Salon</span>
-              {% if business.is_open %}
-              <span class="open-badge">Open Now</span>
-              {% else %}
-              <span class="closed-badge">Closed</span>
-              {% endif %}
-            </div>
-            <h3 class="card-title">Glow Hair Salon</h3>
-            <p class="card-rating">★ 4.9 <span>(98 reviews)</span></p>
-            <p class="card-meta">1.4 km away · $$$</p>
-            <button class="btn btn-cta card-btn">Book Now</button>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=320&fit=crop" alt="Peak Fitness Gym" class="card-img">
-          <div class="card-body">
-            <div class="card-top">
-              <span class="card-tag">Gym</span>
-              <span class="open-badge">Open Now</span>
-            </div>
-            <h3 class="card-title">Peak Fitness Gym</h3>
-            <p class="card-rating">★ 4.7 <span>(210 reviews)</span></p>
-            <p class="card-meta">3.8 km away · $$</p>
-            <button class="btn btn-cta card-btn">Book Now</button>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500&h=320&fit=crop" alt="Serenity Spa treatment room" class="card-img">
-          <div class="card-body">
-            <div class="card-top">
-              <span class="card-tag">Spa</span>
-              <span class="closed-badge">Closed</span>
-            </div>
-            <h3 class="card-title">Serenity Spa</h3>
-            <p class="card-rating">★ 4.9 <span>(76 reviews)</span></p>
-            <p class="card-meta">4.6 km away · $$$</p>
-            <button class="btn btn-cta card-btn">Book Now</button>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b8f?w=500&h=320&fit=crop" alt="Polish Nail Studio" class="card-img">
-          <div class="card-body">
-            <div class="card-top">
-              <span class="card-tag">Nail Studio</span>
-              <span class="open-badge">Open Now</span>
-            </div>
-            <h3 class="card-title">Polish Nail Studio</h3>
-            <p class="card-rating">★ 4.6 <span>(54 reviews)</span></p>
-            <p class="card-meta">0.9 km away · $$</p>
-            <button class="btn btn-cta card-btn">Book Now</button>
-          </div>
-        </article>
-
+        <!---
         <article class="card">
           <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&h=320&fit=crop" alt="CityCare Clinic reception" class="card-img">
           <div class="card-body">
@@ -184,7 +132,7 @@
             <p class="card-meta">5.2 km away · $$</p>
             <button class="btn btn-cta card-btn">Book Now</button>
           </div>
-        </article>
+        </article>-->
       </div>
 
       <div class="pagination">

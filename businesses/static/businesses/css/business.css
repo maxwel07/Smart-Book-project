@@ -222,7 +222,7 @@
 
 .business-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
 }
 
@@ -234,14 +234,23 @@
 }
 .card-top .card-tag { margin-bottom: 0; }
 
-.open-badge, .closed-badge {
+
+.open-badge { 
+  background: #e6f7ee;
+  color: var(--green);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
 }
-.open-badge { background: #e6f7ee; color: var(--green); }
-.closed-badge { background: #fdeaea; color: #c0392b; }
+.closed-badge {
+  background: #f7e6e6;
+  color: rgb(214, 62, 24);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
 
 .card-meta {
   font-size: 0.85rem;

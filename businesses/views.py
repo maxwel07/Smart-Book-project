@@ -5,11 +5,11 @@ from .forms import ReviewForm
 # Create your views here.
 def business(request):
     businesses = Business.objects.all()
+
     context = {
         'businesses': businesses
     }
     return render(request, 'businesses.html', context)
-
 
 
 def business_detail(request, business_id):
@@ -25,6 +25,7 @@ def business_detail(request, business_id):
             review.business = business
             review.save()
             return redirect('business_detail', business_id=business.id)
+
       
     else:
         review_form = ReviewForm()
@@ -37,4 +38,6 @@ def business_detail(request, business_id):
         'review_form': review_form
     }
     return render(request, 'business_detail.html', context)     
+
+ 
 

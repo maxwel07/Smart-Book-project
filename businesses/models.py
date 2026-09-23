@@ -61,7 +61,7 @@ class Service(models.Model):
         return f'{self.business.name} - {self.name}'
 
 
-class Review(models.Model):
+class Reviews(models.Model):
     business = models.ForeignKey(Business, on_delete=models.CASCADE, related_name='reviews')
     customer_name = models.CharField(max_length=100)
     rating = models.PositiveIntegerField()
