@@ -1,0 +1,235 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% load business_extras %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'businesses/css/business_detail.css' %}">
+{% endblock %}
+
+{% block title %} {{business.name}} {% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="detail-breadcrumb">
+  <div class="container">
+    <p><a href="{% url 'home' %}">Home</a> / <a href="{% url 'business_list' %}">Businesses</a> / <span>{{business.category}}</span> / <span>{{business.name}}</span></p>
+  </div>
+</div>
+
+<!-- Header / banner -->
+<section class="detail-header">
+  <div class="cover-photo">
+    {% for image in images %}
+    {% if image.image_type == 'cover' %}
+        <img src="{{ image.image }}" alt="{{ business.name }} cover photo">
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="container">
+    <div class="header-card">
+    {% for image in images %}
+        {% if image.image_type == 'logo' %}
+        <img class="business-logo" src="{{ image.image }}" alt="{{ business.name }} logo">
+        {% endif %}
+    {% endfor %}
+    
+      <div class="header-info">
+        <div class="header-top">
+          <span class="card-tag">{{ business.category }}</span>
+          {% if business.is_open %}
+          <span class="open-badge">Open Now</span>
+          {% else %}
+          <span class="closed-badge">Closed</span>
+          {% endif %}
+        </div>
+        <h1>{{business.name}}</h1>
+        <p class="header-meta">
+          <span class="rating">★ {{business.rating}} <span>({{ business.review_count }}) reviews</span></span>
+          <span class="dot">·</span>
+          <span>{{business.location}}</span>
+        </p>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-cta">Book Now</button>
+        <button class="icon-btn" aria-label="Save to favorites">♡</button>
+        <button class="icon-btn" aria-label="Share">⤴</button>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<!-- Body -->
+<section class="detail-body">
+  <div class="container detail-grid">
+
+    <!-- Main column -->
+    <div class="detail-main">
+
+      <!-- Gallery -->
+        <div class="gallery">
+            {% for image in images %}
+                {% if image.image_type == 'gallery' %}
+                    <img src="{{ image.image }}" alt="{{ business.name }} gallery photo">
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+         
+ 
+      <!-- About -->
+      <div class="detail-section">
+        <h2>About</h2>
+        <p>{{ business.description }}</p>
+      </div>
+
+      <!-- Services -->
+      <div class="detail-section">
+        <h2>Services</h2>
+        <div class="service-list">
+          {% for service in services %}
+          <div class="service-row">
+            <div>
+              
+              <h3>{{ service.name }}</h3>
+              <p class="service-meta">30 mins</p>
+            </div>
+            <div class="service-right">
+              <span class="service-price">ksh.{{ service.price }}</span>
+              <button class="btn btn-outline">Book</button>
+              
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- Reviews -->
+      <div class="detail-section">
+        <h2>Reviews <span class="review-count">({{ business.review_count }})</span></h2>
+        {% for review in reviews %}
+        <div class="review-card">
+          <div class="review-top">
+            <div class="avatar">{{ review.customer_name|initials }}</div>
+            <div>
+              
+              <h4>{{ review.customer_name }}</h4>
+
+              {% for i in "12345" %}
+              {% if forloop.counter <= review.rating %}
+                  <span class="star filled">★</span>
+              {% else %}
+                  <span class="star">☆</span>
+              {% endif %}
+              {% endfor %}
+            </div>
+            <span class="review-date">{{ review.created_at }}</span>
+          </div>
+          <p>{{ review.comment }}</p>
+        </div>
+        {% empty %}
+        <p>No reviews yet</p>
+        {% endfor %}
+        <div class="review-actions">
+          <button class="btn btn-outline load-more">Load More Reviews</button>
+          <button class="btn btn-outline add-review" id="write-review-btn">Add Review</button>
+        </div>
+
+        <!--REVIEW FORM-->
+        <form class="review-form" id="review-form" method="POST">
+          {% csrf_token %}
+          {% if review_form.errors %} 
+          <div class="form-errors"> 
+            <p>Please correct the following errors:</p> 
+            {{ review_form.non_field_errors }} 
+            {% for field in review_form %} 
+            {% for error in field.errors %} 
+            <p>{{ field.label }}: {{ error }}</p> 
+            {% endfor %} 
+            {% endfor %} 
+          </div> 
+          {% endif %} 
+          <h3>Review Form</h3> 
+          <div class="form-group"> 
+            <label for="customer-name">Name</label> 
+            <input type="text" id="customer-name" name="customer_name" placeholder="Enter your name" > 
+          </div> 
+          <div class="form-group"> 
+            <label for="rating">Rating</label> 
+            <select id="rating" name="rating" class="rating-select"> 
+              <option value="5">★★★★★ — 5</option> 
+              <option value="4">★★★★☆ — 4</option> 
+              <option value="3">★★★☆☆ — 3</option> 
+              <option value="2">★★☆☆☆ — 2</option> 
+              <option value="1">★☆☆☆☆ — 1</option> 
+            </select> 
+          </div> 
+          <div class="form-group"> 
+              <label for="comment">Your Review</label> 
+              <textarea id="comment" name="comment" rows="5" placeholder="Share your experience" ></textarea> 
+          </div>
+          <button type="submit" class="btn btn-primary submit" id="submit-review" > Submit Review </button> 
+        </form>
+      </div>
+    </div>  
+    
+    <!-- Sidebar -->
+    <aside class="detail-sidebar">  
+      <div class="booking-widget">
+        <h3>Book an appointment</h3>
+        <label class="field-label" for="svc">Service</label>
+        <select id="svc" class="field-input">
+          {% for service in services %}
+          <option>{{ service.name }} - ksh.{{ service.price }}</option>
+          {% endfor %}
+        </select>
+
+        <label class="field-label" for="dt">Date</label>
+        <input type="date" id="dt" class="field-input">
+
+        <label class="field-label">Available time slots</label>
+        <div class="time-slots">
+          <button class="slot">9:00 AM</button>
+          <button class="slot">9:30 AM</button>
+          <button class="slot selected">10:00 AM</button>
+          <button class="slot">11:15 AM</button>
+          <button class="slot">1:00 PM</button>
+          <button class="slot">2:30 PM</button>
+          <button class="slot">3:45 PM</button>
+          <button class="slot">4:30 PM</button>
+        </div>
+
+        <button class="btn btn-cta confirm-btn">Confirm Booking</button>
+      </div>
+
+      <div class="info-card">
+        <h3>Location &amp; hours</h3>
+        <div class="mini-map">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&h=160&fit=crop" alt="Map location near Kilimani">
+        </div>
+        <p class="info-address">📍 Argwings Kodhek Rd, Kilimani, Nairobi</p>
+        <p class="info-phone">📞 +254 700 111 222</p>
+
+        <table class="hours-table">
+          <tr><td>Mon – Fri</td><td>8:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+          <tr><td>Sunday</td><td>10:00 AM – 3:00 PM</td></tr>
+        </table>
+
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{% endblock content %}
+{% block extra_js %}
+<script src="{% static 'businesses/js/business_detail.js' %}">
+</script>
+{% endblock %}
