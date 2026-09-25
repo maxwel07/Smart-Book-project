@@ -20,9 +20,9 @@
     <p class="breadcrumb"><a href="{% url 'home' %}">Home</a> | <span>Businesses</span></p>
     <h1>Find &amp; book local businesses</h1>
 
-    <form class="page-search" action="#">
-      <input type="text" placeholder="Service or business name">
-      <input type="text" placeholder="Location">
+    <form class="page-search" action="#" method="GET">
+      <input type="text" name="search" placeholder="Service or business name">
+      <input type="text" name="location" placeholder="Location">
       <button type="submit" class="btn btn-cta">Search</button>
     </form>
   </div>

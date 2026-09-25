@@ -4,7 +4,19 @@ from .forms import ReviewForm
 
 # Create your views here.
 def business(request):
-    businesses = Business.objects.all()
+    search = request.GET.get('search')
+    location = request.GET.get('location')
+    if search:
+        businesses = Business.objects.filter(name__icontains = search)
+    else:
+        businesses = Business.objects.all()
+
+    '''
+    if location:
+        businesses = Business.objects.filter(name__icontains = location)
+
+    else:
+        businesses = Business.objects.all()'''
 
     context = {
         'businesses': businesses
