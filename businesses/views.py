@@ -7,11 +7,12 @@ def business(request):
     search = request.GET.get('search')
     location = request.GET.get('location')
     businesses = Business.objects.all()
+
     if search:
         businesses = Business.objects.filter(name__icontains = search)
 
     if location:
-        businesses = Business.objects.filter(name__icontains = location)
+        businesses = Business.objects.filter(location__icontains = location)
 
     context = {
         'businesses': businesses
