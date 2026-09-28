@@ -6,17 +6,12 @@ from .forms import ReviewForm
 def business(request):
     search = request.GET.get('search')
     location = request.GET.get('location')
+    businesses = Business.objects.all()
     if search:
         businesses = Business.objects.filter(name__icontains = search)
-    else:
-        businesses = Business.objects.all()
 
-    '''
     if location:
         businesses = Business.objects.filter(name__icontains = location)
-
-    else:
-        businesses = Business.objects.all()'''
 
     context = {
         'businesses': businesses
