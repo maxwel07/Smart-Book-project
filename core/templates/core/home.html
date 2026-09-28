@@ -18,7 +18,7 @@
     <h1>Book your next appointment in seconds</h1>
     <p>Barbers, salons, gyms and spas near you — real-time availability, instant confirmation.</p>
 
-    <form class="search-widget" action="#">
+  <!--<form class="search-widget" action="#">
       <div class="search-field">
         <label for="service">Service or business</label>
         <input type="text" id="service" placeholder="e.g. Haircut, Fresh Fade Studio">
@@ -32,7 +32,7 @@
         <input type="date" id="date">
       </div>
       <button type="submit" class="btn btn-cta search-btn">Search</button>
-    </form>
+    </form>-->
   </div>
 </section>
 
@@ -74,7 +74,7 @@
   <div class="container">
     <div class="section-header">
       <h2>Popular near you</h2>
-      <a href="#" class="view-all">View all businesses</a>
+      <a href="{% url 'business_list' %}" class="view-all">View all businesses</a>
     </div>
 
     <div class="card-grid">
