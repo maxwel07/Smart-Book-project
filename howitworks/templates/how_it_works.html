@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/how_it_works.css' %}">
+{% endblock %}
+
+{% block title %} How It Works {% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hiw-hero">
+  <div class="container">
+    <span class="card-tag">Getting Started</span>
+    <h1>How It Works</h1>
+    <p class="hiw-subtitle">Book trusted local businesses in four simple steps — no calls, no waiting.</p>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="hiw-steps">
+  <div class="container">
+    <div class="hiw-grid">
+
+      <div class="hiw-step">
+        <div class="hiw-step-number">1</div>
+        <div class="hiw-icon">🔍</div>
+        <h3>Browse Businesses</h3>
+        <p>Search by category or location to find businesses near you — barbershops, spas, clinics, and more.</p>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-step-number">2</div>
+        <div class="hiw-icon">🗓️</div>
+        <h3>Pick a Service &amp; Time</h3>
+        <p>Choose the service you need and select an available date and time slot that works for you.</p>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-step-number">3</div>
+        <div class="hiw-icon">✅</div>
+        <h3>Confirm Your Booking</h3>
+        <p>Review the details and confirm — your appointment is instantly booked with the business.</p>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-step-number">4</div>
+        <div class="hiw-icon">⭐</div>
+        <h3>Visit &amp; Leave a Review</h3>
+        <p>Show up for your appointment, then share your experience to help other customers choose.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="hiw-cta">
+  <div class="container hiw-cta-inner">
+    <h2>Ready to get started?</h2>
+    <p>Find a business near you and book your first appointment today.</p>
+    <a href="{% url 'business_list' %}" class="btn btn-cta">Browse Businesses</a>
+  </div>
+</section>
+
+{% endblock content %}

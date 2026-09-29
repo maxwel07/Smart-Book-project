@@ -1,0 +1,119 @@
+/* how_it_works.css — uses tokens from general.css :root (--navy, --teal, --orange, --white, --text, --text-light, --border, --radius, --shadow, --shadow-hover, --green) */
+
+/* ===== Hero ===== */
+.hiw-hero {
+  padding: 64px 0 48px;
+  text-align: center;
+}
+
+.hiw-hero .card-tag {
+  display: inline-block;
+  background: #e7f1f8;
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.hiw-hero h1 {
+  font-size: 2.2rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.hiw-subtitle {
+  color: var(--text-light);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ===== Steps ===== */
+.hiw-steps {
+  padding: 0 0 72px;
+}
+
+.hiw-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.hiw-step {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.hiw-step:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.hiw-step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.hiw-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.hiw-step h3 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.hiw-step p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* ===== CTA ===== */
+.hiw-cta {
+  background: var(--navy);
+  padding: 56px 0;
+}
+
+.hiw-cta-inner {
+  text-align: center;
+}
+
+.hiw-cta h2 {
+  color: var(--white);
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.hiw-cta p {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hiw-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .hiw-grid { grid-template-columns: 1fr; }
+  .hiw-hero h1 { font-size: 1.7rem; }
+}

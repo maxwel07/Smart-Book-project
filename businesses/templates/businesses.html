@@ -33,7 +33,7 @@
   <div class="container listing-inner">
 
     <!-- Sidebar filters -->
-    <form class="filters" id="filters" method="GET" action="">
+    <form class="filters" id="filters" method="GET">
       <div class="filters-head">
         <h2>Filters</h2>
         <button type="button" class="clear-filters">Clear Filters</button>
@@ -114,7 +114,10 @@
             <h3 class="card-title">{{business.name}}</h3>
             <p class="card-rating">★ {{business.rating}} <span>({{business.review_count}} reviews)</span></p>
             <p class="card-meta">{{business.location}}</p>
-            <button class="btn btn-cta card-btn" >Book Now</button>
+            <a href="{% url 'business_detail' business.pk %}">
+              <button class="btn btn-cta card-btn" >Book Now</button>
+            </a>
+            
           </div>
         </article>
         {% endfor %}
