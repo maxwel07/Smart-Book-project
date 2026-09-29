@@ -91,6 +91,11 @@
 .hiw-cta {
   background: var(--navy);
   padding: 56px 0;
+
+}
+
+.btn-hiw {
+  margin-top: 30px;
 }
 
 .hiw-cta-inner {

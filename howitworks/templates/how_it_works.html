@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'core/css/how_it_works.css' %}">
+<link rel="stylesheet" href="{% static 'howitworks/css/how_it_works.css' %}">
 {% endblock %}
 
 {% block title %} How It Works {% endblock %}
@@ -61,7 +61,7 @@
   <div class="container hiw-cta-inner">
     <h2>Ready to get started?</h2>
     <p>Find a business near you and book your first appointment today.</p>
-    <a href="{% url 'business_list' %}" class="btn btn-cta">Browse Businesses</a>
+    <a href="{% url 'business_list' %}" class="btn btn-cta btn-hiw">Browse Businesses</a>
   </div>
 </section>
 
