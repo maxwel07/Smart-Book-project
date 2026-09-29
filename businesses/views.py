@@ -6,7 +6,11 @@ from .forms import ReviewForm
 def business(request):
     search = request.GET.get('search')
     location = request.GET.get('location')
+    categories = request.GET.getlist('category')
     businesses = Business.objects.all()
+
+    if categories:
+        businesses = Business.objects.filter(category__in=categories)
 
     if search:
         businesses = Business.objects.filter(name__icontains = search)

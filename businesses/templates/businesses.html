@@ -33,20 +33,20 @@
   <div class="container listing-inner">
 
     <!-- Sidebar filters -->
-    <aside class="filters" id="filters">
+    <form class="filters" id="filters" method="GET" action="">
       <div class="filters-head">
         <h2>Filters</h2>
-        <button class="clear-filters">Clear Filters</button>
+        <button type="button" class="clear-filters">Clear Filters</button>
       </div>
 
       <div class="filter-group">
         <h3>Category</h3>
-        <label class="checkbox"><input type="checkbox"> Barber Shop</label>
-        <label class="checkbox"><input type="checkbox"> Hair Salon</label>
-        <label class="checkbox"><input type="checkbox"> Gym</label>
-        <label class="checkbox"><input type="checkbox"> Spa</label>
-        <label class="checkbox"><input type="checkbox"> Clinic</label>
-        <label class="checkbox"><input type="checkbox"> Nail Studio</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="Barber"> Barber Shop</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="salon"> Hair Salon</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="gym"> Gym</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="spa"> Spa</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="clinic"> Clinic</label>
+        <label class="checkbox"><input type="checkbox" name="category" value="nail studio"> Nail Studio</label>
       </div>
 
       <div class="filter-group">
@@ -77,7 +77,7 @@
           <span class="switch"><input type="checkbox"><span class="switch-track"></span></span>
         </label>
       </div>
-    </aside>
+    </form>
 
     <!-- Results -->
     <div class="results">
