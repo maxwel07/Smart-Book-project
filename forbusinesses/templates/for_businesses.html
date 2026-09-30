@@ -1,0 +1,82 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'forbusinesses/css/for-businesses.css' %}">
+{% endblock %}
+
+{% block title %} Businesses {% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<div class="detail-breadcrumb">
+  <div class="container">
+    <p><a href="{% url 'home' %}">Home</a> / <span>Businesses</span></p>
+  </div>
+</div>
+
+<!-- Header + Search/Filter -->
+<section class="list-header">
+  <div class="container">
+    <h1>Find a Business</h1>
+    <p class="list-subtitle">Browse trusted businesses near you and book instantly.</p>
+
+    <form method="GET" class="list-filters">
+      <input
+        type="text"
+        name="q"
+        class="field-input search-input"
+        placeholder="Search by name..."
+        value="{{ request.GET.q }}"
+      >
+
+      <select name="category" class="field-input category-select">
+        <option value="">All Categories</option>
+        {% for cat in categories %}
+        <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit" class="btn btn-cta">Search</button>
+    </form>
+  </div>
+</section>
+
+<!-- Business Grid -->
+<section class="list-body">
+  <div class="container">
+    <div class="business-grid">
+      {% for business in businesses %}
+      <div class="business-card">
+        <div class="card-image">
+          {% if business.cover_image %}
+            <img src="{{ business.cover_image }}" alt="{{ business.name }} cover photo">
+          {% endif %}
+          {% if business.is_open %}
+          <span class="open-badge">Open Now</span>
+          {% else %}
+          <span class="closed-badge">Closed</span>
+          {% endif %}
+        </div>
+
+        <div class="card-body">
+          <span class="card-tag">{{ business.category }}</span>
+          <h3>{{ business.name }}</h3>
+          <p class="card-meta">
+            <span class="rating">★ {{ business.rating }} <span>({{ business.review_count }})</span></span>
+            <span class="dot">·</span>
+            <span>{{ business.location }}</span>
+          </p>
+          <a href="{% url 'business_detail' business.pk %}" class="btn btn-cta">Book Now</a>
+        </div>
+      </div>
+      {% empty %}
+      <p class="no-results">No businesses found. Try a different search or category.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
