@@ -9,3 +9,8 @@
       toggleBtn.addEventListener('click', () => filters.classList.toggle('open'));
     }
   });
+
+  const clearFiltersBtn = document.querySelector('.clear-filters')
+  clearFiltersBtn.addEventListener('click', () => {
+    window.location.href = window.location.pathname;
+  })
