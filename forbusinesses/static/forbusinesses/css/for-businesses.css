@@ -1,0 +1,147 @@
+/* for_business.css — uses tokens from general.css :root (--navy, --teal, --orange, --white, --text, --text-light, --border, --radius, --shadow, --shadow-hover, --green) */
+
+/* ===== Hero ===== */
+.fb-hero {
+  background: var(--navy);
+  padding: 64px 0;
+}
+
+.fb-hero-inner { text-align: center; }
+
+.fb-hero .card-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.fb-hero h1 {
+  color: var(--white);
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+}
+
+.fb-subtitle {
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ===== Benefits ===== */
+.fb-benefits { padding: 56px 0; }
+
+.fb-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.fb-benefit {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
+  text-align: center;
+}
+
+.fb-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+.fb-benefit h3 {
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.fb-benefit p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* ===== Form ===== */
+.fb-form-section {
+  background: #F8F9FA;
+  padding: 56px 0 72px;
+}
+
+.fb-form-container {
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+
+.fb-form-container h2 {
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.fb-form-subtitle {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+.form-group textarea { resize: vertical; }
+
+.form-errors {
+  background: #f7e6e6;
+  border: 1px solid rgb(214, 62, 24);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: rgb(214, 62, 24);
+}
+
+.fb-submit { width: 100%; margin-top: 4px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .fb-benefits-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .fb-form-container { padding: 24px; }
+}
