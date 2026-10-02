@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'core',
     'businesses',
     'howitworks',
-    'forbusinesses',
+  
 ]
 
 MIDDLEWARE = [
