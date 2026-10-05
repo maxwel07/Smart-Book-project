@@ -41,8 +41,8 @@
 
       <div class="filter-group">
         <h3>Category</h3>
-        <input type="hidden" name="search" value={{ request.GET.search }}></input>
-        <input type="hidden" name="location" value={{ request.GET.location }}></input>
+        <input type="hidden" name="search" value="{{ request.GET.search }}"></input>
+        <input type="hidden" name="location" value="{{ request.GET.location }}"></input>
         <label class="checkbox"><input type="checkbox" name="category" value="Barber shop"> Barber Shop</label>
         <label class="checkbox"><input type="checkbox" name="category" value="salon"> Hair Salon</label>
         <label class="checkbox"><input type="checkbox" name="category" value="gym"> Gym</label>
@@ -95,7 +95,20 @@
           <button class="view-toggle active" aria-label="Grid view">▦</button>
           <button class="view-toggle" aria-label="List view">☰</button>
           <form method="GET" class="sort-form">
-            <select class="sort-select" name="sort" onchange="this.form.submit()">
+            <input type="hidden" name="search" value="{{ request.GET.search }}">
+            <input type="hidden" name="location" value="{{ request.GET.location }}">
+            <input type="hidden" name="rating" value="{{ request.GET.rating }}">
+            <input type="hidden" name="price_range" value="{{ request.GET.price_range }}">
+            <input type="hidden" name="open_now" value="{{ request.GET.open_now }}">
+
+            {% for category in request.GET.getlist %}
+                {% if category != 'sort' %}
+                    <input type="hidden" name="category" value="{{ category }}">
+                {% endif %}
+            {% endfor %}
+            <select class="sort-select" name="sort" onchange="const params = new URLSearchParams(window.location.search);
+            params.set('sort', this.value);
+            window.location.search = params.toString();">
               <option value="rating" {% if request.GET.sort == 'rating' or not request.GET.sort %}selected{% endif %}>Top Rated</option>
               <option value="nearest" {% if request.GET.sort == 'nearest' %}selected{% endif %}>Nearest</option>
               <option value="price_low" {% if request.GET.sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
@@ -122,6 +135,7 @@
             <h3 class="card-title">{{business.name}}</h3>
             <p class="card-rating">★ {{business.rating}} <span>({{business.review_count}} reviews)</span></p>
             <p class="card-meta">{{business.location}}</p>
+            <p class="price_range">price range: {{business.price_range }}</p>
             <a href="{% url 'business_detail' business.pk %}">
               <button class="btn btn-cta card-btn" >Book Now</button>
             </a>

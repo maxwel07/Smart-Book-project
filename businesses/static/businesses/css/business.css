@@ -252,6 +252,12 @@
   border-radius: 20px;
 }
 
+.price_range{
+  color: rgb(143, 143, 143);
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
 .card-meta {
   font-size: 0.85rem;
   color: var(--text-light);
