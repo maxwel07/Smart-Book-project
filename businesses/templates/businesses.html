@@ -54,17 +54,17 @@
       <div class="filter-group">
         <h3>Price range</h3>
         <div class="price-chips">
-          <button class="chip">$</button>
-          <button class="chip">$$</button>
-          <button class="chip">$$$</button>
+          <button type="submit" name="price_range" value="$" class="chip">$</button>
+          <button type="submit" name="price_range" value="$$" class="chip">$$</button>
+          <button type="submit" name="price_range" value="$$$" class="chip">$$$</button>
         </div>
       </div>
 
       <div class="filter-group">
         <h3>Rating</h3>
-        <label class="checkbox"><input type="radio" name="rating"> 4+ stars</label>
-        <label class="checkbox"><input type="radio" name="rating"> 3+ stars</label>
-        <label class="checkbox"><input type="radio" name="rating"> Any rating</label>
+        <label class="checkbox"><input type="radio" name="rating" value="4"> 4+ stars</label>
+        <label class="checkbox"><input type="radio" name="rating" value="3"> 3+ stars</label>
+        <label class="checkbox"><input type="radio" name="rating" value=""> Any rating</label>
       </div>
 
       <div class="filter-group">
@@ -76,9 +76,10 @@
       <div class="filter-group filter-toggle">
         <label class="switch-label">
           <span>Open now</span>
-          <span class="switch"><input type="checkbox"><span class="switch-track"></span></span>
+          <span class="switch"><input type="checkbox" name="open_now" value="1"><span class="switch-track"></span></span>
         </label>
       </div>
+      <br>
       <button type="submit" class="btn btn-primary apply-filters">
         Apply Filters
       </button>
@@ -93,12 +94,14 @@
         <div class="results-controls">
           <button class="view-toggle active" aria-label="Grid view">▦</button>
           <button class="view-toggle" aria-label="List view">☰</button>
-          <select class="sort-select">
-            <option>Top Rated</option>
-            <option>Nearest</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-          </select>
+          <form method="GET" class="sort-form">
+            <select class="sort-select" name="sort" onchange="this.form.submit()">
+              <option value="rating" {% if request.GET.sort == 'rating' or not request.GET.sort %}selected{% endif %}>Top Rated</option>
+              <option value="nearest" {% if request.GET.sort == 'nearest' %}selected{% endif %}>Nearest</option>
+              <option value="price_low" {% if request.GET.sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+              <option value="price_high" {% if request.GET.sort == 'price_high' %}selected {% endif %}>Price: High to Low</option>
+            </select>
+          </form>
         </div>
       </div>
 

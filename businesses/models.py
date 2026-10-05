@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Business(models.Model):
     name = models.CharField(max_length=100)
@@ -9,6 +10,7 @@ class Business(models.Model):
     image = models.URLField(blank=True)
     is_featured = models.BooleanField(default=False)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)
+    price_range = models.CharField(max_length=3, default='$')
     review_count = models.PositiveIntegerField(default=0)
     opening_time = models.TimeField(blank=True, null=True)
     closing_time = models.TimeField(blank=True, null=True)
