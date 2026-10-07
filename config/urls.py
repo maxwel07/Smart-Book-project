@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include('core.urls')),
     path('businesses/', include('businesses.urls')),
     path('how it works/', include('howitworks.urls')),
+    path('accounts/', include('accounts.urls')),
 
 ]

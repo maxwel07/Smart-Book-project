@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+{% endblock %}
+
+{% block title %} Create Account {% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <h1>Create your account</h1>
+      <p>Join to book appointments and leave reviews.</p>
+    </div>
+
+    <form method="POST" class="auth-form" novalidate>
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+      <div class="auth-errors">
+        {% for error in form.non_field_errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% for field in form %}
+      <div class="auth-field {% if field.errors %}has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+
+        {% for error in field.errors %}
+        <p class="field-error">{{ error }}</p>
+        {% endfor %}
+
+        {% if field.help_text %}
+        <div class="field-help">{{ field.help_text|safe }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-cta auth-submit">Create Account</button>
+    </form>
+
+    <p class="auth-footer">
+      Already have an account?
+    </p>
+
+  </div>
+</section>
+
+{% endblock content %}
