@@ -147,13 +147,28 @@
 
       </div>
 
-      <div class="pagination">
-        <button class="page-btn" disabled>‹ Prev</button>
-        <button class="page-btn active">1</button>
-        <button class="page-btn">2</button>
-        <button class="page-btn">3</button>
-        <button class="page-btn">Next ›</button>
-      </div>
+      <!-- PAGINATION -->
+      {% if businesses.has_other_pages %}
+        <div class="pagination">
+
+          {% if businesses.has_previous %}
+            <a href="?{{ query_params.urlencode }}&page={{ businesses.previous_page_number }}" class="page-btn">
+            ‹ Prev
+            </a>
+          {% endif %}
+
+          <span class="page-btn active">
+          {{ businesses.number }}
+          </span>
+
+          {% if businesses.has_next %}
+            <a href="?{{ query_string }}&page={{ businesses.next_page_number }}" class="page-btn">
+            Next ›
+            </a>
+          {% endif %}
+
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>

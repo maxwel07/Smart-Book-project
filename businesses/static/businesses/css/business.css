@@ -125,7 +125,10 @@
   background: var(--teal);
   border-color: var(--teal);
   color: var(--white);
+
 }
+
+
 
 .distance-slider {
   width: 100%;
@@ -275,7 +278,7 @@
 .page-btn {
   min-width: 40px;
   height: 40px;
-  padding: 0 12px;
+  padding: 9px 15px;
   border: 1px solid var(--border);
   background: var(--white);
   border-radius: 8px;
@@ -283,7 +286,9 @@
   font-size: 0.9rem;
   color: var(--text);
   cursor: pointer;
+
 }
+
 .page-btn:hover:not(:disabled) { border-color: var(--teal); color: var(--teal); }
 .page-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
