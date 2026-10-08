@@ -1,0 +1,74 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+
+{% block title %}Login | SmartBook{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <h1>Welcome back</h1>
+      <p>Log in to your SmartBook account.</p>
+    </div>
+    {% if messages %}
+      {% for message in messages %}
+          <div class="form-message">
+              {{ message }}
+          </div>
+      {% endfor %}
+    {% endif %}
+    <form method="POST" class="auth-form">
+      {% csrf_token %}
+
+      {% if form.errors %}
+      <div class="auth-errors">
+        <p>Invalid username or password. Please try again.</p>
+      </div>
+      {% endif %}
+
+      {% if request.GET.next %}
+      <input type="hidden" name="next" value="{{ request.GET.next }}">
+      {% endif %}
+
+      <div class="auth-field">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn btn-cta auth-submit">Login</button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account? <a href="{% url 'register' %}">Create one</a>
+    </p>
+
+  </div>
+</section>
+
+{% endblock content %}

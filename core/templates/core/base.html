@@ -26,21 +26,33 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="#" class="btn btn-text">Log In</a>
-                <a href="#" class="btn btn-primary">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn btn-text">Log In</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
             </div>
             <button class="nav-toggle" aria-label="Open menu">
             <span></span><span></span><span></span>
             </button>
         </div>
+        <div class='log-status-cont'>
+        {% if user.is_authenticated %}
+            <span class="log-status">logged in as {{ user.username }}</span>
+        {% else %}
+            <span>Not logged in</span>
+        {% endif %}
+    </div>
     </header>
+
+
+    
+
+
 
     {% block content %}
     <main>
      
     </main>
     {% endblock %}
-
+    
     <footer class="footer" id="contact">
         <div class="container footer-inner">
             <div class="footer-col">

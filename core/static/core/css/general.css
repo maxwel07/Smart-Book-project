@@ -17,6 +17,28 @@
   --shadow: 0 2px 10px rgba(10, 61, 98, 0.08);
   --shadow-hover: 0 8px 24px rgba(10, 61, 98, 0.14);
 }
+
+.log-status {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight:500;
+
+  
+}
+
+.log-status-cont {
+  background-color: var(--navy);
+  position: absolute;
+  top: 0;
+  right: 12%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 12px;
+  height:fit-content;
+
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text);
