@@ -18,17 +18,20 @@
   --shadow-hover: 0 8px 24px rgba(10, 61, 98, 0.14);
 }
 
-.log-status {
-  color: #fff;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight:500;
 
+.log-status {
+  font-family: var(--font-heading);
+  z-index: 1;
+  font-size: clamp(2rem, 4vw, 3rem);
+  max-width: 700px;
+  margin: 0 auto 16;
+  color: var(--navy);
+  line-height: 1.25;
   
 }
 
 .log-status-cont {
-  background-color: var(--navy);
+  background-color: rgba(10, 61, 98, .7);
   position: absolute;
   top: 0;
   right: 12%;
@@ -36,6 +39,7 @@
   border-radius: 10px;
   margin-top: 12px;
   height:fit-content;
+  border: 2px solid #0A3D62;
 
 }
 

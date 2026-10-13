@@ -25,20 +25,21 @@
                 <a href="" class="{% if request.resolver_match.url_name == 'for_businesses' %} active {% endif %}">For Businesses</a>
                 <a href="#contact">Contact</a>
             </nav>
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn btn-primary" >Logout</a>
+            {% else %}
             <div class="nav-actions">
                 <a href="{% url 'login' %}" class="btn btn-text">Log In</a>
                 <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
             </div>
+            {% endif %}
             <button class="nav-toggle" aria-label="Open menu">
             <span></span><span></span><span></span>
             </button>
+
+
         </div>
-        <div class='log-status-cont'>
-        {% if user.is_authenticated %}
-            <span class="log-status">logged in as {{ user.username }}</span>
-        {% else %}
-            <span>Not logged in</span>
-        {% endif %}
     </div>
     </header>
 
