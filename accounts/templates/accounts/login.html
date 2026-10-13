@@ -26,7 +26,6 @@
     {% endif %}
     <form method="POST" class="auth-form">
       {% csrf_token %}
-
       {% if form.errors %}
       <div class="auth-errors">
         <p>Invalid username or password. Please try again.</p>

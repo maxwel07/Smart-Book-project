@@ -20,7 +20,6 @@
 
     <form method="POST" class="auth-form" novalidate>
       {% csrf_token %}
-
       {% if form.non_field_errors %}
       <div class="auth-errors">
         {% for error in form.non_field_errors %}
