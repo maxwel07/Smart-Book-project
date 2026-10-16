@@ -3,6 +3,8 @@ from .forms import registerForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -40,6 +42,7 @@ def login_view(request):
 
     return render(request, 'accounts/login.html')
 
+@require_POST
 def logout_view(request):
     logout(request)
     return redirect('home')
