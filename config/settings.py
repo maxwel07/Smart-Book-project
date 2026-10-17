@@ -132,3 +132,5 @@ MAILERS = {
     },
 }
 
+LOGIN_URL = 'login'
+

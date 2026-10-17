@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import registerForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
-from django.contrib.auth import logout
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 
@@ -46,3 +45,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
+
+
+@login_required
+def my_account(request):
+    return render(request, 'accounts/my-account.html', {
+        'user': request.user
+    })

@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}My Account | SmartBook{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card">
+        <h1>My Account</h1>
+
+        <p>Welcome, {{ user.username }}!</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+</div>
+{% endblock %}

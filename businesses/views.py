@@ -4,8 +4,10 @@ from .forms import ReviewForm
 from datetime import datetime
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
 def business(request):
     search = request.GET.get('search')
     location = request.GET.get('location')
@@ -66,7 +68,7 @@ def business(request):
     print("QUERY STRING:", query_string)
     return render(request, 'businesses.html', context)
 
-
+@login_required
 def business_detail(request, business_id):
     business = get_object_or_404(Business, id=business_id)  
     services = business.services.filter(is_active=True)
