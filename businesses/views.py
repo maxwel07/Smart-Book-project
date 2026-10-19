@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Business
-from .forms import ReviewForm
-from datetime import datetime
+from .models import Business, Booking
+from .forms import ReviewForm, BookingForm
+from datetime import datetime, timedelta
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.utils import timezone
 
 # Create your views here.
 
@@ -95,6 +97,48 @@ def business_detail(request, business_id):
         'review_form': review_form
     }
     return render(request, 'business_detail.html', context)     
+
+@login_required
+def create_booking(request, business_id):
+    business = get_object_or_404(Business, id=business_id)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, business=business)
+
+        if form.is_valid():
+            booking = form.save(commit=False)
+
+            booking.customer = request.user
+            booking.business = business
+
+            start_datetime = datetime.combine(
+                booking.appointment_date,
+                booking.start_time
+            )
+
+            booking.end_time = (
+                datetime.combine(
+                    booking.appointment_date,
+                    booking.start_time
+                ) + timedelta(minutes=booking.service.duration)
+            ).time()
+
+            booking.save()
+
+            messages.success(
+                request,
+                'Your booking request has been submitted!'
+            )
+
+            return redirect('business_detail', business_id=business.id)
+
+    else:
+        form = BookingForm(business=business)
+
+    return render(request, 'booking_form.html', {
+        'business': business,
+        'form': form,
+    })
 
  
 

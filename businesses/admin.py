@@ -1,9 +1,27 @@
 from django.contrib import admin
-from .models import Business, BusinessImage, Service, Reviews
+from . import models
 
-admin.site.register(Business)
-admin.site.register(BusinessImage)
-admin.site.register(Service)
-admin.site.register(Reviews)
+admin.site.register(models.Business)
+admin.site.register(models.BusinessImage)
+admin.site.register(models.Service)
+admin.site.register(models.Reviews)
+
+@admin.register(models.Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = (
+        'customer',
+        'business',
+        'service',
+        'appointment_date',
+        'start_time',
+        'status',
+    )
+
+    list_filter = ('status', 'appointment_date', 'business')
+    search_fields = (
+        'customer__username',
+        'business__name',
+        'service__name',
+    )
 
 
