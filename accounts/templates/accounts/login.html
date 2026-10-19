@@ -24,8 +24,10 @@
           </div>
       {% endfor %}
     {% endif %}
+
     <form method="POST" class="auth-form">
       {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.GET.next }}">
       {% if form.errors %}
       <div class="auth-errors">
         <p>Invalid username or password. Please try again.</p>
