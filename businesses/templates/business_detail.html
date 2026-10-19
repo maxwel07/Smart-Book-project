@@ -109,26 +109,16 @@
           {% endfor %}
         </div>
       </div>
-<<<<<<< HEAD
       
       
       <!-- Reviews -->
       <div class="detail-section">
         <h2>Reviews <span class="review-count">({{business.review_count}})</span></h2>
-=======
-      <!-- Reviews -->
-      <div class="detail-section">
-        <h2>Reviews <span class="review-count">({{ business.review_count }})</span></h2>
->>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
         {% for review in reviews %}
         <div class="review-card">
           <div class="review-top">
             <div class="avatar">{{ review.customer_name|initials }}</div>
             <div>
-<<<<<<< HEAD
-=======
-              
->>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
               <h4>{{ review.customer_name }}</h4>
 
               {% for i in "12345" %}
@@ -139,7 +129,6 @@
               {% endif %}
               {% endfor %}
             </div>
-<<<<<<< HEAD
             <span class="review-date">{{ review.created_at|date:'M d, Y' }}</span>
           </div>
           <p>{{ review.comment }}</p>
@@ -220,66 +209,6 @@
         <select id="svc" class="field-input">
           {% for service in services %}
           <option>{{ service.name }} - ksh.{{ service.price}}</option>
-=======
-            <span class="review-date">{{ review.created_at }}</span>
-          </div>
-          <p>{{ review.comment }}</p>
-        </div>
-        {% empty %}
-        <p>No reviews yet</p>
-        {% endfor %}
-        <div class="review-actions">
-          <button class="btn btn-outline load-more">Load More Reviews</button>
-          <button class="btn btn-outline add-review" id="write-review-btn">Add Review</button>
-        </div>
-
-        <!--REVIEW FORM-->
-        <form class="review-form" id="review-form" method="POST">
-          {% csrf_token %}
-          {% if review_form.errors %} 
-          <div class="form-errors"> 
-            <p>Please correct the following errors:</p> 
-            {{ review_form.non_field_errors }} 
-            {% for field in review_form %} 
-            {% for error in field.errors %} 
-            <p>{{ field.label }}: {{ error }}</p>
-            {% endfor %} 
-            {% endfor %} 
-          </div> 
-          {% endif %} 
-          <h3>Review Form</h3> 
-          <div class="form-group"> 
-            <label for="customer-name">Name</label> 
-            <input type="text" id="customer-name" name="customer_name" placeholder="Enter your name" > 
-          </div> 
-          <div class="form-group"> 
-            <label for="rating">Rating</label> 
-            <select id="rating" name="rating" class="rating-select"> 
-              <option value="5">★★★★★ — 5</option> 
-              <option value="4">★★★★☆ — 4</option> 
-              <option value="3">★★★☆☆ — 3</option> 
-              <option value="2">★★☆☆☆ — 2</option> 
-              <option value="1">★☆☆☆☆ — 1</option> 
-            </select> 
-          </div> 
-          <div class="form-group"> 
-              <label for="comment">Your Review</label> 
-              <textarea id="comment" name="comment" rows="5" placeholder="Share your experience" ></textarea> 
-          </div>
-          <button type="submit" class="btn btn-primary submit" id="submit-review" > Submit Review </button> 
-        </form>
-      </div>
-    </div>  
-    
-    <!-- Sidebar -->
-    <aside class="detail-sidebar">  
-      <div class="booking-widget">
-        <h3>Book an appointment</h3>
-        <label class="field-label" for="svc">Service</label>
-        <select id="svc" class="field-input">
-          {% for service in services %}
-          <option>{{ service.name }} - ksh.{{ service.price }}</option>
->>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
           {% endfor %}
         </select>
 

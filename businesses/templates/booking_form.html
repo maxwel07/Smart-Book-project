@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Book a Service | SmartBook{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card">
+        <h1>Book a Service</h1>
+
+        <p>
+            You're booking with
+            <strong>{{ business.name }}</strong>.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary">
+                Submit Booking
+            </button>
+        </form>
+
+        <p>
+            <a href="{% url 'business_detail' business.id %}">
+                Back to Business
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
