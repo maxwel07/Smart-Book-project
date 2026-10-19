@@ -109,54 +109,8 @@
           {% endfor %}
         </div>
       </div>
-      <div class="booking-widget">
-        <h3>Book an appointment</h3>
-
-        <label class="field-label" for="svc">Service</label>
-        <select id="svc" class="field-input">
-          {% for service in services %}
-          <option>{{ service.name }} - ksh.{{ service.price}}</option>
-          {% endfor %}
-        </select>
-
-        <label class="field-label" for="dt">Date</label>
-        <input type="date" id="dt" class="field-input">
-
-        <label class="field-label">Available time slots</label>
-        <div class="time-slots">
-          <button class="slot">9:00 AM</button>
-          <button class="slot">9:30 AM</button>
-          <button class="slot selected">10:00 AM</button>
-          <button class="slot">11:15 AM</button>
-          <button class="slot">1:00 PM</button>
-          <button class="slot">2:30 PM</button>
-          <button class="slot">3:45 PM</button>
-          <button class="slot">4:30 PM</button>
-        </div>
-
-        <button class="btn btn-cta confirm-btn">Confirm Booking</button>
-      </div>
-
-      <div class="info-card">
-        <h3>Location &amp; hours</h3>
-        <div class="mini-map">
-          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&h=160&fit=crop" alt="Map location near Kilimani">
-        </div>
-        <p class="info-address">📍 Argwings Kodhek Rd, Kilimani, Nairobi</p>
-        <p class="info-phone">📞 +254 700 111 222</p>
-
-        <table class="hours-table">
-          <tr><td>Mon – Fri</td><td>8:00 AM – 7:00 PM</td></tr>
-          <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
-          <tr><td>Sunday</td><td>10:00 AM – 3:00 PM</td></tr>
-        </table>
-
-        <div class="social-row">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Twitter">TW</a>
-        </div>
-      </div>
+      
+      
       <!-- Reviews -->
       <div class="detail-section">
         <h2>Reviews <span class="review-count">({{business.review_count}})</span></h2>
@@ -247,7 +201,56 @@
       </div>
     </div>
     <!-- Sidebar -->
-    <aside class="detail-sidebar"></aside>
+    <aside class="detail-sidebar">
+      <div class="booking-widget">
+        <h3>Book an appointment</h3>
+
+        <label class="field-label" for="svc">Service</label>
+        <select id="svc" class="field-input">
+          {% for service in services %}
+          <option>{{ service.name }} - ksh.{{ service.price}}</option>
+          {% endfor %}
+        </select>
+
+        <label class="field-label" for="dt">Date</label>
+        <input type="date" id="dt" class="field-input">
+
+        <label class="field-label">Available time slots</label>
+        <div class="time-slots">
+          <button class="slot">9:00 AM</button>
+          <button class="slot">9:30 AM</button>
+          <button class="slot selected">10:00 AM</button>
+          <button class="slot">11:15 AM</button>
+          <button class="slot">1:00 PM</button>
+          <button class="slot">2:30 PM</button>
+          <button class="slot">3:45 PM</button>
+          <button class="slot">4:30 PM</button>
+        </div>
+
+        <button class="btn btn-cta confirm-btn">Confirm Booking</button>
+      </div>
+
+      <div class="info-card">
+        <h3>Location &amp; hours</h3>
+        <div class="mini-map">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&h=160&fit=crop" alt="Map location near Kilimani">
+        </div>
+        <p class="info-address">📍 Argwings Kodhek Rd, Kilimani, Nairobi</p>
+        <p class="info-phone">📞 +254 700 111 222</p>
+
+        <table class="hours-table">
+          <tr><td>Mon – Fri</td><td>8:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+          <tr><td>Sunday</td><td>10:00 AM – 3:00 PM</td></tr>
+        </table>
+
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">TW</a>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
