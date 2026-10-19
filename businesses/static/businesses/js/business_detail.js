@@ -7,9 +7,10 @@
     });
   });
 
-const reviewButton = document.getElementById('write-review-btn');
-const reviewForm = document.getElementById('review-form');
 
-reviewButton.addEventListener('click', function click(){
-  reviewForm.classList.toggle('open');
+addReviewbtn = document.getElementById('write-review-btn')
+form = document.getElementById('review-form')
+
+addReviewbtn.addEventListener('click', () => {
+  form.classList.toggle('open')
 })

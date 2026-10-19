@@ -1,7 +1,6 @@
 {% extends 'core/base.html' %}
 
 {% load static %}
-
 {% load business_extras %}
 
 {% block extra_css %}
@@ -31,15 +30,15 @@
 
   <div class="container">
     <div class="header-card">
-      {% for image in images %}
-          {% if image.image_type == 'logo' %}
-          <img class="business-logo" src="{{ image.image }}" alt="{{ business.name }} logo">
-          {% endif %}
-      {% endfor %}
+    {% for image in images %}
+        {% if image.image_type == 'logo' %}
+        <img class="business-logo" src="{{ image.image }}" alt="{{ business.name }} logo">
+        {% endif %}
+    {% endfor %}
     
       <div class="header-info">
         <div class="header-top">
-          <span class="card-tag">{{business.category}}</span>
+          <span class="card-tag">{{ business.category }}</span>
           {% if business.is_open %}
           <span class="open-badge">Open Now</span>
           {% else %}
@@ -48,7 +47,7 @@
         </div>
         <h1>{{business.name}}</h1>
         <p class="header-meta">
-          <span class="rating">★ {{business.rating}} <span>({{business.review_count}}) reviews</span></span>
+          <span class="rating">★ {{business.rating}} <span>({{ business.review_count }}) reviews</span></span>
           <span class="dot">·</span>
           <span>{{business.location}}</span>
         </p>
@@ -71,20 +70,20 @@
     <div class="detail-main">
 
       <!-- Gallery -->
-          <div class="gallery">
+        <div class="gallery">
             {% for image in images %}
                 {% if image.image_type == 'gallery' %}
                     <img src="{{ image.image }}" alt="{{ business.name }} gallery photo">
                 {% endif %}
             {% endfor %}
-          </div>
+        </div>
         
          
  
       <!-- About -->
       <div class="detail-section">
         <h2>About</h2>
-        <p>{{business.description}}</p>
+        <p>{{ business.description }}</p>
       </div>
 
       <!-- Services -->
@@ -104,21 +103,32 @@
             <div class="service-right">
               <span class="service-price">ksh.{{ service.price }}</span>
               <button class="btn btn-outline">Book</button>
+              
             </div>
           </div>
           {% endfor %}
         </div>
       </div>
+<<<<<<< HEAD
       
       
       <!-- Reviews -->
       <div class="detail-section">
         <h2>Reviews <span class="review-count">({{business.review_count}})</span></h2>
+=======
+      <!-- Reviews -->
+      <div class="detail-section">
+        <h2>Reviews <span class="review-count">({{ business.review_count }})</span></h2>
+>>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
         {% for review in reviews %}
         <div class="review-card">
           <div class="review-top">
             <div class="avatar">{{ review.customer_name|initials }}</div>
             <div>
+<<<<<<< HEAD
+=======
+              
+>>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
               <h4>{{ review.customer_name }}</h4>
 
               {% for i in "12345" %}
@@ -129,6 +139,7 @@
               {% endif %}
               {% endfor %}
             </div>
+<<<<<<< HEAD
             <span class="review-date">{{ review.created_at|date:'M d, Y' }}</span>
           </div>
           <p>{{ review.comment }}</p>
@@ -209,6 +220,66 @@
         <select id="svc" class="field-input">
           {% for service in services %}
           <option>{{ service.name }} - ksh.{{ service.price}}</option>
+=======
+            <span class="review-date">{{ review.created_at }}</span>
+          </div>
+          <p>{{ review.comment }}</p>
+        </div>
+        {% empty %}
+        <p>No reviews yet</p>
+        {% endfor %}
+        <div class="review-actions">
+          <button class="btn btn-outline load-more">Load More Reviews</button>
+          <button class="btn btn-outline add-review" id="write-review-btn">Add Review</button>
+        </div>
+
+        <!--REVIEW FORM-->
+        <form class="review-form" id="review-form" method="POST">
+          {% csrf_token %}
+          {% if review_form.errors %} 
+          <div class="form-errors"> 
+            <p>Please correct the following errors:</p> 
+            {{ review_form.non_field_errors }} 
+            {% for field in review_form %} 
+            {% for error in field.errors %} 
+            <p>{{ field.label }}: {{ error }}</p>
+            {% endfor %} 
+            {% endfor %} 
+          </div> 
+          {% endif %} 
+          <h3>Review Form</h3> 
+          <div class="form-group"> 
+            <label for="customer-name">Name</label> 
+            <input type="text" id="customer-name" name="customer_name" placeholder="Enter your name" > 
+          </div> 
+          <div class="form-group"> 
+            <label for="rating">Rating</label> 
+            <select id="rating" name="rating" class="rating-select"> 
+              <option value="5">★★★★★ — 5</option> 
+              <option value="4">★★★★☆ — 4</option> 
+              <option value="3">★★★☆☆ — 3</option> 
+              <option value="2">★★☆☆☆ — 2</option> 
+              <option value="1">★☆☆☆☆ — 1</option> 
+            </select> 
+          </div> 
+          <div class="form-group"> 
+              <label for="comment">Your Review</label> 
+              <textarea id="comment" name="comment" rows="5" placeholder="Share your experience" ></textarea> 
+          </div>
+          <button type="submit" class="btn btn-primary submit" id="submit-review" > Submit Review </button> 
+        </form>
+      </div>
+    </div>  
+    
+    <!-- Sidebar -->
+    <aside class="detail-sidebar">  
+      <div class="booking-widget">
+        <h3>Book an appointment</h3>
+        <label class="field-label" for="svc">Service</label>
+        <select id="svc" class="field-input">
+          {% for service in services %}
+          <option>{{ service.name }} - ksh.{{ service.price }}</option>
+>>>>>>> 44eabd735f75123ced85f6f5dc79117742dc68f2
           {% endfor %}
         </select>
 

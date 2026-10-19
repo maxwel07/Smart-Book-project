@@ -22,4 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('businesses/', include('businesses.urls')),
+    path('how it works/', include('howitworks.urls')),
+    path('accounts/', include('accounts.urls')),
+
 ]

@@ -1,0 +1,138 @@
+/* auth.css — shared styles for register/login pages. Uses tokens from general.css :root */
+
+.auth-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  background: #F8F9FA;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+
+.form-message {
+  background-color: rgba(255, 2, 2, 0.2);
+  color: rgb(233, 14, 14);
+  border: 1px solid red;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: smaller;
+}
+
+/* ===== Header ===== */
+.auth-header { text-align: center; margin-bottom: 28px; }
+
+.auth-header h1 {
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  color: var(--text-light);
+  font-size: 0.92rem;
+}
+
+/* ===== Fields ===== */
+.auth-field { margin-bottom: 18px; }
+
+.auth-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.auth-field input,
+.auth-field select,
+.auth-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.auth-field input:focus,
+.auth-field select:focus,
+.auth-field textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0, 128, 160, 0.15);
+}
+
+.auth-field.has-error input {
+  border-color: rgb(214, 62, 24);
+}
+
+/* ===== Help text (Django's password rules render as a <ul>) ===== */
+.field-help {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.field-help ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.field-help li { margin-bottom: 2px; }
+
+/* ===== Errors ===== */
+.field-error {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgb(214, 62, 24);
+}
+
+.auth-errors {
+  background: #f7e6e6;
+  border: 1px solid rgb(214, 62, 24);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: rgb(214, 62, 24);
+}
+
+/* ===== Submit + footer ===== */
+.auth-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  font-size: 0.95rem;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 0.88rem;
+  color: var(--text-light);
+}
+
+.auth-footer a {
+  color: var(--teal);
+  font-weight: 600;
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .auth-card { padding: 24px 20px; }
+}

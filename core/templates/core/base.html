@@ -10,9 +10,6 @@
     {% block extra_css %}
     {% endblock %}
 
-    
-    
-
     <title>{% block title %} {% endblock %}</title>
 </head>
 
@@ -24,26 +21,42 @@
             <nav class="nav-links">
                 <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
                 <a href="{% url  'business_list' %}" class="{% if request.resolver_match.url_name == 'business_list' %}active{% endif %}">Businesses</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#for-business">For Businesses</a>
+                <a href="{% url 'how_it_works' %}" class="{% if request.resolver_match.url_name == 'how_it_works' %} active {% endif %}">How It Works</a>
+                <a href="" class="{% if request.resolver_match.url_name == 'for_businesses' %} active {% endif %}">For Businesses</a>
                 <a href="#contact">Contact</a>
             </nav>
+
+            {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button type='submit' class="btn btn-primary">Log out</button>
+            </form>
+            {% else %}
             <div class="nav-actions">
-                <a href="#" class="btn btn-text">Log In</a>
-                <a href="#" class="btn btn-primary">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn btn-text">Log In</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
             </div>
+            {% endif %}
             <button class="nav-toggle" aria-label="Open menu">
             <span></span><span></span><span></span>
             </button>
+
+
         </div>
+    </div>
     </header>
+
+
+    
+
+
 
     {% block content %}
     <main>
      
     </main>
     {% endblock %}
-
+    
     <footer class="footer" id="contact">
         <div class="container footer-inner">
             <div class="footer-col">

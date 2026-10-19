@@ -22,14 +22,15 @@
   object-fit: cover;
 }
 
+/*==== OPEN AND CLOSE BUTTONS ====*/
 .open-badge { background: #e6f7ee; color: var(--green); padding: 3px 10px; border-radius:8px;}
-.closed-badge {
-  background: #f7e6e6;
-  color: rgb(214, 62, 24);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
+.closed-badge{
+    background: rgba(228, 15, 15, 0.1);
+    color: rgb(175, 33, 33);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
 }
 
 
@@ -246,17 +247,18 @@
 .review-card p { color: var(--text); font-size: 0.92rem; }
 
 /*===== Review Buttons =====*/
-.review-btn-holder{
+.review-actions{
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 12px;
   width: 100%;
   gap: 10rem;
+  padding-top: 2rem;
 }
 
-.load-more, .write-review-btn {
-  width: 40%;
+.load-more, .add-review {
+  width: 50%;
 }
 
 /*===== Review Form =====*/
