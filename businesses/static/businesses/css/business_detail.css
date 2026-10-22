@@ -247,8 +247,9 @@
 .review-card p { color: var(--text); font-size: 0.92rem; }
 
 /*===== Review Buttons =====*/
-.review-actions{
+.review-btn-holder{
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 12px;
@@ -257,7 +258,7 @@
   padding-top: 2rem;
 }
 
-.load-more, .add-review {
+.load-more, .write-review-btn {
   width: 50%;
 }
 
