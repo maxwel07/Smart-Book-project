@@ -1,0 +1,207 @@
+/* booking.css — uses tokens from general.css :root (--navy, --teal, --orange, --white, --text, --text-light, --border, --radius, --shadow, --shadow-hover, --green) */
+
+.booking-section {
+  padding: 24px 0 80px;
+  background: #F8F9FA;
+  min-height: 70vh;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ===== Form card ===== */
+.booking-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+
+.booking-header { margin-bottom: 28px; }
+
+.booking-header h1 {
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.booking-header p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.booking-header strong { color: var(--navy); }
+
+/* ===== Fields ===== */
+.booking-field { margin-bottom: 18px; }
+
+.booking-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.booking-field input,
+.booking-field select,
+.booking-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--white);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.booking-field input:focus,
+.booking-field select:focus,
+.booking-field textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0, 128, 160, 0.15);
+}
+
+.booking-field.has-error input,
+.booking-field.has-error select {
+  border-color: rgb(214, 62, 24);
+}
+
+.field-error {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgb(214, 62, 24);
+}
+
+.field-help {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+.booking-errors {
+  background: #f7e6e6;
+  border: 1px solid rgb(214, 62, 24);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: rgb(214, 62, 24);
+}
+
+/* ===== Submit + back link ===== */
+.booking-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  font-size: 0.95rem;
+}
+
+.booking-back {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--teal);
+}
+.booking-back:hover { text-decoration: underline; }
+
+/* ===== Summary card ===== */
+.booking-summary {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  position: sticky;
+  top: 90px;
+}
+
+.booking-summary .card-tag {
+  display: inline-block;
+  background: #e7f1f8;
+  color: var(--teal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.booking-summary h3 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.summary-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+.summary-meta .rating { color: #d99a06; font-weight: 600; }
+.summary-meta .dot { color: var(--border); }
+
+.booking-summary .open-badge {
+  background: #e6f7ee;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.booking-summary .closed-badge {
+  background: #f7e6e6;
+  color: rgb(214, 62, 24);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.summary-notes {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.summary-notes li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.summary-notes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .booking-grid { grid-template-columns: 1fr; }
+  .booking-summary { position: static; order: -1; }
+}
+
+@media (max-width: 480px) {
+  .booking-card { padding: 24px 20px; }
+}

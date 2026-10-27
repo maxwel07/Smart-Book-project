@@ -141,4 +141,5 @@ def create_booking(request, business_id):
     })
 
  
-
+def home(request):
+    return render(request, 'about.html', {'project_name': 'smartbook', 'city': 'Nairobi'})

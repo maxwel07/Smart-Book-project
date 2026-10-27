@@ -39,3 +39,7 @@ class BookingForm(forms.ModelForm):
             )
         else:
             self.fields['service'].queryset = Service.objects.none()
+
+
+
+    
