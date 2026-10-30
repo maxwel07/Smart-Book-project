@@ -54,7 +54,9 @@
       </div>
 
       <div class="header-actions">
-        <button class="btn btn-cta">Book Now</button>
+        <button class="btn btn-cta">
+          <a href="{% url 'create_booking' business.id %}">Book Now</a>
+        </button>
         <button class="icon-btn" aria-label="Save to favorites">♡</button>
         <button class="icon-btn" aria-label="Share">⤴</button>
       </div>

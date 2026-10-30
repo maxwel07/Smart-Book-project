@@ -72,8 +72,9 @@
   box-shadow: 0 0 0 3px rgba(0, 128, 160, 0.15);
 }
 
-.booking-field.has-error input,
-.booking-field.has-error select {
+.booking-field.has-error input, 
+.booking-field.has-error select
+ {
   border-color: rgb(214, 62, 24);
 }
 

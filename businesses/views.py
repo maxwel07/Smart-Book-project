@@ -107,7 +107,6 @@ def create_booking(request, business_id):
 
         if form.is_valid():
             booking = form.save(commit=False)
-
             booking.customer = request.user
             booking.business = business
 
@@ -140,6 +139,3 @@ def create_booking(request, business_id):
         'form': form,
     })
 
- 
-def home(request):
-    return render(request, 'about.html', {'project_name': 'smartbook', 'city': 'Nairobi'})
