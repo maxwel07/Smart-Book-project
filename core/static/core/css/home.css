@@ -322,6 +322,7 @@ img { display: block; max-width: 100%; }
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .footer-inner { grid-template-columns: 1fr 1fr; }
+  
 }
 
 @media (max-width: 768px) {
