@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
+from django.utils.http import url_has_allowed_host_and_scheme
 
 # Create your views here.
 
@@ -34,6 +35,11 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+
+            next_url = request.POST.get('next') or request.GET.get('next')
+
+            if next_url and url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}, require_https=request.is_secure(),):
+                return redirect(next_url)
 
             return redirect('home')
 

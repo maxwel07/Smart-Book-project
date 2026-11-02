@@ -221,3 +221,13 @@ nav a.active {
   font-size: 0.85rem;
   color: #9fb9cc;
 }
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .navbar{
+    display: none;
+  }
+
+  
+}

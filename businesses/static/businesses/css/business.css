@@ -318,8 +318,16 @@
 @media (max-width: 600px) {
   .page-search { flex-direction: column; }
   .results-bar { align-items: flex-start; }
+ 
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+  .business-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
 
 /* == TEST == */
 

@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.conf import settings
+from django.utils import timezone
 
 # Create your models here.
 class Business(models.Model):
@@ -61,6 +62,51 @@ class Service(models.Model):
 
     def __str__(self):
         return f'{self.business.name} - {self.name}'
+
+class Booking(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled'),
+        ('completed', 'Completed'),
+    ]
+
+    customer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='bookings'
+    )
+
+    business = models.ForeignKey(
+        Business,
+        on_delete=models.CASCADE,
+        related_name='bookings'
+    )
+
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.PROTECT,
+        related_name='bookings'
+    )
+
+    appointment_date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return (
+            f'{self.customer.username} - '
+            f'{self.service.name} on {self.appointment_date}'
+        )
+    
 
 
 class Reviews(models.Model):
