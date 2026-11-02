@@ -12,7 +12,7 @@ def business(request):
     search = request.GET.get('search')
     location = request.GET.get('location')
     categories = request.GET.getlist('category')
-    price_range = request.GET.get('price_range')
+    price_range = request.GET.get('price_range')    
     rating = request.GET.get('rating')
     sort = request.GET.get('sort')
     open_now = request.GET.get('open_now')
@@ -45,7 +45,7 @@ def business(request):
                 opening_time__lte = current_time,
                 closing_time__gte = current_time
             )
-
+ 
     if sort == 'rating':
         businesses = businesses.order_by('-rating')
 
