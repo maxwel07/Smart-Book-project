@@ -38,4 +38,5 @@ class BookingForm(forms.ModelForm):
                 is_active=True
             )
         else:
-            self.fields['service'].queryset = Service.objects.none()
+            self.fields['service'].queryset = Service.objects.all()
+
